@@ -23,11 +23,11 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/hello-pablo', function() use($app) {
-  return 'hello-pablo.html'
+  return 'hello-pablo.html';
 });
 
 $app->get('/example', function() use($app) {
-  return 'index.html'
+  return 'index.html';
 });
 
 $app->run();
