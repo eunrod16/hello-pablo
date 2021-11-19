@@ -22,4 +22,12 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
+$app->get('/hello-pablo', function() use($app) {
+  return 'hello-pablo.html'
+});
+
+$app->get('/example', function() use($app) {
+  return 'index.html'
+});
+
 $app->run();
