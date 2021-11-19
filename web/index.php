@@ -23,7 +23,7 @@ $app->get('/', function() use($app) {
 });
 
 $app->get('/hello-pablo', function() use($app) {
-  return 'hello-pablo.html';
+  return $app['twig']->render('hello-pablo.html');
 });
 
 $app->get('/example', function() use($app) {
