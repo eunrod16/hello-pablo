@@ -11,7 +11,7 @@ if ( isSet( $post["nombre"] ) ) {
 //echo json_encode( $_SESSION['data'] );
 
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
     $curl = curl_init($url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		$method = "GET";
