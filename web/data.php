@@ -37,6 +37,6 @@ $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos";
     }
     $response = curl_exec($curl);
     $data = json_decode($response)
-		echo $data
+		//echo $data
 
 ?>
