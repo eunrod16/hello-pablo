@@ -19,17 +19,20 @@
 			<h2>Listado de registros</h2>
 			<div>
 				<div v-for="r in regs">
-					<div><input type="checkbox"
+					<div>
+            <!--<input type="checkbox"
              v-model="checkedCategories"
              id="r.nombre_proyecto"
              :value="r.nombre_proyecto"
-             @change="check($event)">{{ r.nombre_proyecto }}</div>
+             @change="check($event)">-->
+             {{ r.nombre_proyecto }}
+           </div>
 				</div>
 
         	<button v-on:click="enviar_proyectos">ok</button>
 
           <div v-for="r in results">
-            <div><input type="checkbox">{{ r.nombre_proyecto }}</div>
+            <div><input type="checkbox">{{ r }}</div>
           </div>
 			</div>
 		</div>

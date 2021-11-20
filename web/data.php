@@ -10,7 +10,7 @@ if ( isSet( $post["nombre"] ) ) {
 
 //echo json_encode( $_SESSION['data'] );
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media-proyecto.json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media_proyecto.json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "PUT" );
