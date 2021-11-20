@@ -15,7 +15,7 @@ $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, '{"id_proyecto":1,"link_media":"link de imagen 3"}' );
-$response = curl_exec($curl);
+
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
     $curl = curl_init($url);
