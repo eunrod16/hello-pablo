@@ -30,7 +30,7 @@ var app = new Vue({
     },
 
     enviar_proyectos: function() {
-      this.results = this.proyectos
+      this.results = this.regs
     }
 
   },
