@@ -9,4 +9,34 @@ if ( isSet( $post["nombre"] ) ) {
 	}
 
 echo json_encode( $_SESSION['data'] );
+
+
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos";
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$method = "GET";
+		$data = "";
+
+    switch ($method) {
+        case "GET":
+            //curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+            break;
+        case "POST":
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            break;
+        case "PUT":
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+            break;
+        case "DELETE":
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+            curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+            break;
+    }
+    $response = curl_exec($curl);
+    $data = json_decode($response)
+		echo $data
+
 ?>
