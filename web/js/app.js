@@ -29,8 +29,9 @@ var app = new Vue({
       });
     },
 
-    enviar_proyectos: function() {
-      this.results = this.regs
+    check: function(e) {
+      this.results = this.checkedCategories
+		console.log(this.results)
     }
 
   },
