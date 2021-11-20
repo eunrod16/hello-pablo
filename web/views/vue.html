@@ -21,7 +21,7 @@
 				<div v-for="r in regs">
 					<div><input type="checkbox"
              v-model="checkedCategories"
-             :id="r.nombre_proyecto"
+             id="r.nombre_proyecto"
              :value="r.nombre_proyecto"
              @change="check($event)">{{ r.nombre_proyecto }}</div>
 				</div>
@@ -29,7 +29,7 @@
         	<button v-on:click="enviar_proyectos">ok</button>
 
           <div v-for="r in results">
-            <div><input type="checkbox" v-model="results" id="{{r.nombre_proyecto}}" value="{{r.nombre_proyecto}}">{{ r.nombre_proyecto }}</div>
+            <div><input type="checkbox">{{ r.nombre_proyecto }}</div>
           </div>
 			</div>
 		</div>
