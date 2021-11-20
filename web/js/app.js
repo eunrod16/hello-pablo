@@ -4,7 +4,7 @@ var app = new Vue({
     nombre: '',
     telefono: '',
     regs: [],
-    proyectos: [],
+    checkedCategories: [],
     results: [],
 
   },
@@ -32,7 +32,18 @@ var app = new Vue({
     check: function(e) {
       this.results = this.checkedCategories
 		console.log(this.results)
-    }
+  },
+
+  enviar_proyectos: function() {
+    this.$http.post('data.php',{
+      nombre: this.nombre,
+      telefono: this.telefono
+    }).then(function(response){
+      this.regs = response.body;
+      this.nombre="";
+      this.telefono="";
+    });
+  },
 
   },
   created: function() {
