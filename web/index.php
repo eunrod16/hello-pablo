@@ -27,7 +27,7 @@ $app->get('/hello-pablo', function() use($app) {
 });
 
 $app->get('/example', function() use($app) {
-  return $app->redirect('index.html');
+  return $app->render('index.html');
 });
 
 $app->run();
