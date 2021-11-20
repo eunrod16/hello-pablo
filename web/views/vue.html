@@ -19,7 +19,7 @@
 			<h2>Listado de registros</h2>
 			<div>
 				<div v-for="r in regs">
-					<div><input type="checkbox" v-model="proyectos" id="{{r.nombre_proyecto}}" value="{{r.nombre_proyecto}}">{{ r.nombre_proyecto }}</div>
+					<div><input type="checkbox" v-model="regs" id="{{r.nombre_proyecto}}" value="{{r.nombre_proyecto}}">{{ r.nombre_proyecto }}</div>
 				</div>
 
         	<button v-on:click="enviar_proyectos">ok</button>
