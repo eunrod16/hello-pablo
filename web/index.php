@@ -27,7 +27,7 @@ $app->get('/hello-pablo', function() use($app) {
 });
 
 $app->get('/example', function() use($app) {
-  return $app['twig']->render('index.html');
+  return $app->redirect('index.html');
 });
 
 $app->run();
