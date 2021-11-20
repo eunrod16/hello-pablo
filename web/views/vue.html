@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>https://www.albertcoronado.com Vue.js Sample</title>
+		<title>Hello Example</title>
 	</head>
 	<body>
 		<div id='vueapp'>
@@ -19,8 +19,14 @@
 			<h2>Listado de registros</h2>
 			<div>
 				<div v-for="r in regs">
-					<div>{{ r.nombre_proyecto }}</div>
+					<div><input type="checkbox" v-model="proyectos" id="{{r.nombre_proyecto}}" value="{{r.nombre_proyecto}}">{{ r.nombre_proyecto }}</div>
 				</div>
+
+        	<button v-on:click="enviar_proyectos">ok</button>
+
+          <div v-for="r in results">
+            <div><input type="checkbox" v-model="results" id="{{r.nombre_proyecto}}" value="{{r.nombre_proyecto}}">{{ r.nombre_proyecto }}</div>
+          </div>
 			</div>
 		</div>
 

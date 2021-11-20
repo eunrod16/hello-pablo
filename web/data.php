@@ -10,6 +10,12 @@ if ( isSet( $post["nombre"] ) ) {
 
 //echo json_encode( $_SESSION['data'] );
 
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media-proyecto.json";
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode('{"id_proyecto":1,"link_media":"link 2 media"}'));
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+$response = curl_exec($curl);
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
     $curl = curl_init($url);
@@ -37,7 +43,7 @@ $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
     }
     $response = curl_exec($curl);
     $data = json_decode($response);
-		echo json_encode( $data);
+
 		//echo $data
 
 ?>

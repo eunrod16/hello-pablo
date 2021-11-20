@@ -1,33 +1,40 @@
 var app = new Vue({
   el: '#vueapp',
   data: {
-	nombre: '',
-	telefono: '',
-	regs: []
-  	},
+    nombre: '',
+    telefono: '',
+    regs: [],
+    proyectos: [],
+    results: [],
+
+  },
   methods: {
 
-	reloadList: function() {
- 		this.$http.get('data.php').then(function(response){
-        		this.regs = response.body;
-      		}, function(){
-	        	alert('Error!');
-      		});
-		},
+    reloadList: function() {
+      this.$http.get('data.php').then(function(response){
+        this.regs = response.body;
+      }, function(){
+        alert('Error!');
+      });
+    },
 
-	enviar: function() {
-		this.$http.post('data.php',{
-			nombre: this.nombre,
-			telefono: this.telefono
-			}).then(function(response){
-        			this.regs = response.body;
-				this.nombre="";
-				this.telefono="";
-      				});
-		}
+    enviar: function() {
+      this.$http.post('data.php',{
+        nombre: this.nombre,
+        telefono: this.telefono
+      }).then(function(response){
+        this.regs = response.body;
+        this.nombre="";
+        this.telefono="";
+      });
+    },
 
-	},
+    enviar_proyectos: function() {
+      this.results = this.proyectos
+    }
+
+  },
   created: function() {
-	this.reloadList();
-	}
+    this.reloadList();
+  }
 });
