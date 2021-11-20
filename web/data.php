@@ -8,7 +8,7 @@ if ( isSet( $post["nombre"] ) ) {
 	array_push( $_SESSION['data'], array( "nombre"=>$post["nombre"], "telefono"=>$post["telefono"] ) );
 	}
 
-echo json_encode( $_SESSION['data'] );
+//echo json_encode( $_SESSION['data'] );
 
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos";
@@ -37,6 +37,7 @@ $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos";
     }
     $response = curl_exec($curl);
     $data = json_decode($response)
+		echo json_encode( $data);
 		//echo $data
 
 ?>
