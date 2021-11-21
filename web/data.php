@@ -1,5 +1,6 @@
 <?php
-
+require('../vendor/autoload.php');
+use Google\Cloud\Storage\StorageClient;
 session_start();
 if ( !isSet($_SESSION['data']) ) $_SESSION['data']=array();
 
