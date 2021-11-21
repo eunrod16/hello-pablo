@@ -48,7 +48,7 @@ echo json_encode($data);
 //echo $data
 
 
-upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png")
+upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
 /**
 * Upload a file.
 *
