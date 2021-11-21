@@ -1,8 +1,8 @@
 <?php
 require('../vendor/autoload.php');
-include '/images';
+
 use Google\Cloud\Storage\StorageClient;
-upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
+upload_object("hopeforzeropolio.appspot.com","lang-logo.png",__DIR__."/images/lang-logo.png");
 /**
 * Upload a file.
 *
