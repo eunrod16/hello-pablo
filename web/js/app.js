@@ -44,6 +44,32 @@ var app = new Vue({
       this.telefono="";
     });
   },
+  uploadFile: function(){
+
+     this.file = this.$refs.file.files[0];
+
+     let formData = new FormData();
+     formData.append('file', this.file);
+
+     axios.post('ajaxfile.php', formData,
+     {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+     })
+     .then(function (response) {
+
+        if(!response.data){
+           alert('File not uploaded.');
+        }else{
+           alert('File uploaded successfully.');
+        }
+
+     })
+     .catch(function (error) {
+         console.log(error);
+     });
+  },
 
   },
   created: function() {
