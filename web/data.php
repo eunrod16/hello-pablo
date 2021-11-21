@@ -1,8 +1,8 @@
 <?php
 require('../vendor/autoload.php');
-
+include '/images'
 use Google\Cloud\Storage\StorageClient;
-upload_object("hopeforzeropolio.appspot.com","lang-logo.png","../images/lang-logo.png");
+upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
 /**
 * Upload a file.
 *
@@ -25,7 +25,7 @@ function upload_object($bucketName, $objectName, $source)
 	$object = $bucket->upload($file, [
 		'name' => $objectName
 	]);
-	printf('Uploaded %s to gs://%s/%s' . PHP_EOL, basename($source), $bucketName, $objectName);
+#	printf('Uploaded %s to gs://%s/%s' . PHP_EOL, basename($source), $bucketName, $objectName);
 }
 
 
