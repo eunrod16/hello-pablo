@@ -7,15 +7,15 @@ $post = json_decode(file_get_contents('php://input'), true);
 // if ( isSet( $post["nombre"] ) ) {
 // 	array_push( $_SESSION['data'], array( "nombre"=>$post["nombre"], "telefono"=>$post["telefono"] ) );
 // }
-$data = {
-	nombre_proyecto: "",
-	descripcion:"",
-	cliente:"",
-	software:"",
-	fecha_inicio:"",
-	fecha_fin:""
-
-}
+// $data = {
+// 	nombre_proyecto: "",
+// 	descripcion:"",
+// 	cliente:"",
+// 	software:"",
+// 	fecha_inicio:"",
+// 	fecha_fin:""
+//
+// }
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
 $curl = curl_init();
