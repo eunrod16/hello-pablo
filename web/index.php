@@ -1,6 +1,7 @@
 <?php
 
 require('../vendor/autoload.php');
+use Google\Cloud\Storage\StorageClient;
 
 $app = new Silex\Application();
 $app['debug'] = true;

@@ -47,7 +47,7 @@ $data = json_decode($response);
 echo json_encode($data);
 //echo $data
 
-use Google\Cloud\Storage\StorageClient;
+
 upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
 /**
 * Upload a file.
