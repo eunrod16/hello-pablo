@@ -66,6 +66,8 @@ function upload_object($bucketName, $objectName, $source)
 	$storage = new StorageClient([
 	    'projectId' => "hopeforzeropolio"
 	]);
+	putenv('GOOGLE_APPLICATION_CREDENTIALS=hopeforzeropolio-f53ec920a5e0.json');
+  $storage->useApplicationDefaultCredentials();
 	$file = fopen($source, 'r');
 	$bucket = $storage->bucket($bucketName);
 	$object = $bucket->upload($file, [
