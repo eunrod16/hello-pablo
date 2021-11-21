@@ -6,6 +6,13 @@ var app = new Vue({
     regs: [],
     checkedCategories: [],
     results: [],
+    nombre_proyecto:'',
+    software:'',
+    cliente:'',
+    links:'',
+    fecha_inicio:'',
+    fecha_fin:'',
+    descripcion:''
 
   },
   methods: {
@@ -15,6 +22,25 @@ var app = new Vue({
         this.regs = response.body;
       }, function(){
         alert('Error!');
+      });
+    },
+
+    crear_proyecto: function() {
+      this.$http.post('crear_proyecto.php',{
+        nombre_proyecto: this.nombre_proyecto,
+        descripcion: this.descripcion,
+        cliente: this.cliente,
+        software: this.software,
+        fecha_inicio: this.fecha_inicio,
+        fecha_fin: this.fecha_fin
+      }).then(function(response){
+        this.regs = response.body;
+        this.nombre_proyecto= "";
+        this.descripcion="";
+        this.cliente="";
+        this.software="";
+        this.fecha_inicio="";
+        this.fecha_fin=""
       });
     },
 

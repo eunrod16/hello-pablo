@@ -19,6 +19,7 @@
       </p>
     </div>
   </nav>
+  <div id='vueapp'>
   <section class="section">
 
     <form class="box">
@@ -26,26 +27,33 @@
       <div class="field">
         <label class="label">Nombre del Proyecto</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" type="text" placeholder="Text input" v-model="nombre_proyecto" >
         </div>
       </div>
 
 
       <div class="field">
         <label class="label">Descripción</label>
-        <textarea class="textarea" placeholder="Textarea"></textarea>
+        <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
         <!--  <p class="help is-success">This username is available</p>-->
       </div>
       <div class="field">
         <label class="label">Cliente</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" type="text" placeholder="Text input" v-model="cliente">
         </div>
       </div>
       <div class="field">
         <label class="label">Software</label>
         <div class="control">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" type="text" placeholder="Text input" v-model="software">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Links</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input" v-model="links">
         </div>
       </div>
 
@@ -54,13 +62,13 @@
         <div class="column">
         <label class="label">Fecha Inicio</label>
         <div class="control">
-          <input class="input" type="date" placeholder="Text input">
+          <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio">
         </div>
         </div>
         <div class="column">
         <label class="label">Fecha Fin</label>
         <div class="control">
-          <input class="input" type="date" placeholder="Text input">
+          <input class="input" type="date" placeholder="Text input" v-model="fecha_fin">
         </div>
         </div>
         </div>
@@ -85,32 +93,24 @@
     </br>
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link">Submit</button>
+        <button v-on:click="crear_proyecto" class="button is-link">Submit</button>
       </div>
     </div>
   </form>
 
   <form class="box">
     <h2 class="title is-4">Agregar imágen a proyecto</h2>
-    <div class="field">
-      <label class="radio">
-        <input type="radio">
-        Proyecto 1
-      </label>
-    </div>
-    <div class="field">
-      <label class="radio">
-        <input type="radio">
-        Proyecto 2
-      </label>
-    </div>
-    <div class="field">
-      <label class="radio">
-        <input type="radio">
-        Proyecto 3
-      </label>
-    </div>
 
+    <div class="field" v-for="r in regs">
+      <label class="radio">
+        <input type="radio"
+         v-model="checkedCategories"
+         id="r.nombre_proyecto"
+         :value="r.nombre_proyecto"
+         @change="check($event)">
+         {{ r.nombre_proyecto }}
+      </label>
+    </div>
     <label class="file-label">
       <input class="file-input" type="file" name="resume">
       <span class="file-cta">
@@ -213,5 +213,6 @@
   </div>
 </form>
 </section>
+</div>
 </body>
 </html>
