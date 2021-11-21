@@ -1,6 +1,34 @@
 <?php
 require('../vendor/autoload.php');
+require("/images");
 use Google\Cloud\Storage\StorageClient;
+upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
+/**
+* Upload a file.
+*
+* @param string $bucketName The name of your Cloud Storage bucket.
+* @param string $objectName The name of your Cloud Storage object.
+* @param string $source The path to the file to upload.
+*/
+function upload_object($bucketName, $objectName, $source)
+{
+	// $bucketName = 'my-bucket';
+	// $objectName = 'my-object';
+	// $source = '/path/to/your/file';
+
+	$storage = new StorageClient([
+	    'projectId' => "hopeforzeropolio"
+	]);
+	putenv('GOOGLE_APPLICATION_CREDENTIALS=hopeforzeropolio-f53ec920a5e0.json');
+	$file = fopen($source, 'r');
+	$bucket = $storage->bucket($bucketName);
+	$object = $bucket->upload($file, [
+		'name' => $objectName
+	]);
+	printf('Uploaded %s to gs://%s/%s' . PHP_EOL, basename($source), $bucketName, $objectName);
+}
+
+
 session_start();
 if ( !isSet($_SESSION['data']) ) $_SESSION['data']=array();
 
@@ -49,30 +77,6 @@ echo json_encode($data);
 //echo $data
 
 
-upload_object("hopeforzeropolio.appspot.com","lang-logo.png","/images/lang-logo.png");
-/**
-* Upload a file.
-*
-* @param string $bucketName The name of your Cloud Storage bucket.
-* @param string $objectName The name of your Cloud Storage object.
-* @param string $source The path to the file to upload.
-*/
-function upload_object($bucketName, $objectName, $source)
-{
-	// $bucketName = 'my-bucket';
-	// $objectName = 'my-object';
-	// $source = '/path/to/your/file';
 
-	$storage = new StorageClient([
-	    'projectId' => "hopeforzeropolio"
-	]);
-	putenv('GOOGLE_APPLICATION_CREDENTIALS=hopeforzeropolio-f53ec920a5e0.json');
-	$file = fopen($source, 'r');
-	$bucket = $storage->bucket($bucketName);
-	$object = $bucket->upload($file, [
-		'name' => $objectName
-	]);
-	printf('Uploaded %s to gs://%s/%s' . PHP_EOL, basename($source), $bucketName, $objectName);
-}
 
 ?>
