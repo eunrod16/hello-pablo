@@ -71,6 +71,16 @@ var app = new Vue({
       console.log(this.proyectospersonal)
     },
 
+    asignar_proyecto: function(e) {
+      this.$http.post('pagina_proyecto.php',{
+        proyectoscofcof: this.proyectoscofcof,
+        proyectospersonal: this.proyectospersonal
+      }).then(function(response){
+
+      });
+    },
+
+
     enviar_proyectos: function() {
       this.$http.post('data.php',{
         nombre: this.nombre,
