@@ -2,7 +2,7 @@
 require('../vendor/autoload.php');
 
 use Google\Cloud\Storage\StorageClient;
-
+$post = json_decode(file_get_contents('php://input'), true);
 
 function upload_object($bucketName, $objectName, $source)
 {
@@ -27,7 +27,7 @@ function asign_link_object($nombre_proyecto, $link){
 
 
 $filename = $_FILES['file']['name'];
-$nombre_proyecto = $_FILES['nombre_proyecto'];
+$nombre_proyecto = $post['nombre_proyecto'];
 $valid_extensions = array("jpg","jpeg","png","pdf");
 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 if(in_array(strtolower($extension),$valid_extensions) ) {
