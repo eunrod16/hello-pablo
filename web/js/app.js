@@ -5,7 +5,6 @@ var app = new Vue({
     telefono: '',
     regs: [],
     checkedCategories: [],
-    results: [],
     nombre_proyecto:'',
     software:'',
     cliente:'',
@@ -16,6 +15,7 @@ var app = new Vue({
     proyectoscofcof: [],
     proyectospersonal: [],
     nombre_proyecto_checked:"",
+    nombre_proyecto_checked_delete:"",
     addcofcof:[],
     addpersonal:[],
 
@@ -39,7 +39,9 @@ var app = new Vue({
         cliente: this.cliente,
         software: this.software,
         fecha_inicio: this.fecha_inicio,
-        fecha_fin: this.fecha_fin
+        fecha_fin: this.fecha_fin,
+        cofcof: this.addcofcof,
+        personal: this.addpersonal,
       }).then(function(response){
         this.regs = response.body;
         this.nombre_proyecto= "";
@@ -48,6 +50,14 @@ var app = new Vue({
         this.software="";
         this.fecha_inicio="";
         this.fecha_fin=""
+      });
+    },
+
+    eliminar_proyecto: function() {
+      this.$http.post('eliminar_proyecto.php',{
+        nombre_proyecto: this.nombre_proyecto_checked_delete,
+      }).then(function(response){
+        this.regs = response.body;
       });
     },
 
@@ -67,12 +77,6 @@ var app = new Vue({
       console.log(this.nombre_proyecto_checked)
     },
 
-    checkcofcof: function(e) {
-      console.log(this.proyectoscofcof)
-    },
-    checkpersonal: function(e) {
-      console.log(this.proyectospersonal)
-    },
 
     checkadd: function(e) {
       console.log(this.addcofcof)
