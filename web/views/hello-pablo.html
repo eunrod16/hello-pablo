@@ -184,19 +184,18 @@
 
   <form class="box">
     <h2 class="title is-4">Agregar imágen a proyecto</h2>
-    {{ regs }}
-    <div class="field" v-for="r in regs.proyectos">
-      {{ r }}
-
-      {{ r[0] }}
+    {{ regs.proyectos }}
+    <div v-for="r1 in regs.proyectos">
+    <div class="field" v-for="r in r1">
       <label class="radio">
         <input type="radio"
          v-model="checkedCategories"
-         id="r[0].nombre_proyecto"
-         :value="r[0].nombre_proyecto"
+         id="r.nombre_proyecto"
+         :value="r.nombre_proyecto"
          @change="check($event)">
-         {{ r[0].nombre_proyecto }}
+         {{ r.nombre_proyecto }}
       </label>
+    </div>
     </div>
     <label class="file-label">
       <input class="file-input" type="file" name="resume">
@@ -216,7 +215,7 @@
     </div>
   </div>
 </form>
-
+{{regs.asignacion}}
 <form class="box">
   <div class="columns is-desktop">
     <div class="column">
