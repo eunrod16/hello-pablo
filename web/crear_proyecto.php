@@ -16,6 +16,7 @@ $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($asignacion_proyectos) );
+$response = curl_exec($curl);
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
