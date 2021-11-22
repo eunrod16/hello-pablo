@@ -133,14 +133,14 @@
   <div class="columns is-desktop">
     <div class="column">
       <h2 class="title is-4">Proyectos en CofCof</h2>
-      <div class="field" v-for="r in regs.asignacion">
+      <div class="field" v-for="r in proyectoscofcof">
         <label class="checkbox">
           <input type="checkbox"
-          v-model="checkedCategories"
+          v-model="r.checked"
           :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
-          :checked="true">
+          :true-value=>
           {{ r.nombre_proyecto }}
         </label>
       </div>
@@ -149,15 +149,14 @@
 
     <div class="column">
       <h2 class="title is-4">Proyectos en Personal</h2>
-      <div class="field" v-for="r in regs.asignacion">
+      <div class="field" v-for="r in proyectospersonal">
         <label class="checkbox">
           <input type="checkbox"
-          v-model="checkedCategories"
-          :checked="r.personal == 1 ? true: false"
+          v-model="r.checked"
           :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
-          >
+          :true-value=>
           {{ r.nombre_proyecto }}
         </label>
       </div>

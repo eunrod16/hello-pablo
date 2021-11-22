@@ -18,10 +18,12 @@ $post = json_decode(file_get_contents('php://input'), true);
 // }
 
 $asignacion_proyectos->nombre_proyecto =  $post["nombre_proyecto"];
-$asignacion_proyectos->cofcof = 0;
-$asignacion_proyectos->personal = 0;
+$asignacion_proyectos->checked = 0;
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto.json";
+
+
+
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof.json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );

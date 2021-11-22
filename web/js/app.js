@@ -12,7 +12,9 @@ var app = new Vue({
     links:'',
     fecha_inicio:'',
     fecha_fin:'',
-    descripcion:''
+    descripcion:'',
+    proyectoscofcof: [],
+    proyectospersonal: [],
 
   },
   methods: {
@@ -20,6 +22,8 @@ var app = new Vue({
     reloadList: function() {
       this.$http.get('data.php').then(function(response){
         this.regs = response.body;
+        this.proyectoscofcof = response.body.asignacion.cofcof;
+        this.proyectospersonal = response.body.asignacion.personal;
       }, function(){
         alert('Error!');
       });
