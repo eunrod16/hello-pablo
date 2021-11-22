@@ -15,7 +15,9 @@ var app = new Vue({
     descripcion:'',
     proyectoscofcof: [],
     proyectospersonal: [],
-    nombre_proyecto_checked:""
+    nombre_proyecto_checked:"",
+    addcofcof:[],
+    addpersonal:[]
 
   },
   methods: {
@@ -70,6 +72,10 @@ var app = new Vue({
     },
     checkpersonal: function(e) {
       console.log(this.proyectospersonal)
+    },
+
+    checkadd: function(e) {
+      console.log(this.addcofcof)
     },
 
     asignar_proyecto: function(e) {
