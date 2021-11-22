@@ -235,14 +235,14 @@
 
       <div class="column">
         <h2 class="title is-4">Proyectos en Personal</h2>
+        {{proyectospersonal}}
         <div  v-for="proyecto in proyectospersonal">
           <div class="field" v-for="r in proyecto">
             <label class="checkbox">
               <input type="checkbox"
               v-model="r.checked"
               :id="r.nombre_proyecto"
-              :value="r.nombre_proyecto"
-              >
+              :value="r.nombre_proyecto">
               {{ r.nombre_proyecto }}
             </label>
           </div>
