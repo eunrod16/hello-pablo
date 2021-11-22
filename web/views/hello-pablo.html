@@ -20,262 +20,266 @@
     </div>
   </nav>
   <div id='vueapp'>
-  <section class="section">
+    <section class="section">
+
+      <form class="box">
+        <h2 class="title is-4">Crear Proyecto </h2>
+        <div class="field">
+          <label class="label">Nombre del Proyecto</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="nombre_proyecto" >
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label class="label">Descripción</label>
+          <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
+          <!--  <p class="help is-success">This username is available</p>-->
+        </div>
+        <div class="field">
+          <label class="label">Cliente</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="cliente">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Software</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="software">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Links</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Text input" v-model="links">
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="columns is-desktop">
+            <div class="column">
+              <label class="label">Fecha Inicio</label>
+              <div class="control">
+                <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio">
+              </div>
+            </div>
+            <div class="column">
+              <label class="label">Fecha Fin</label>
+              <div class="control">
+                <input class="input" type="date" placeholder="Text input" v-model="fecha_fin">
+              </div>
+            </div>
+          </div>
+        </div>
+        <label class="label">Imágen de portada</label>
+        <div class="file">
+
+          <label class="file-label">
+            <input class="file-input" type="file" name="resume">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="label">Incluir en CofCof</label>
+          <div class="columns is-desktop">
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addcofcof"
+                value="descripcion"
+                @change="checkadd($event)">
+                Descripción
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addcofcof"
+                value="cliente"
+                @change="checkadd($event)">
+                Cliente
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addcofcof"
+                value="software"
+                @change="checkadd($event)">
+                Software
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addcofcof"
+                value="fechas"
+                @change="checkadd($event)">
+                Fechas
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Incluir en Personal</label>
+          <div class="columns is-desktop">
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addpersonal"
+                value="descripcion"
+                @change="checkadd($event)">
+                Descripción
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addpersonal"
+                value="cliente"
+                @change="checkadd($event)">
+                Cliente
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addpersonal"
+                value="software"
+                @change="checkadd($event)">
+                Software
+              </label>
+            </div>
+            <div class="column">
+              <label class="checkbox">
+                <input type="checkbox"
+                v-model="addpersonal"
+                value="fechas"
+                @change="checkadd($event)">
+                Fechas
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+      </br>
+      <div class="field is-grouped">
+        <div class="control">
+          <button v-on:click="crear_proyecto" class="button is-link">Submit</button>
+        </div>
+      </div>
+    </form>
 
     <form class="box">
-      <h2 class="title is-4">Crear Proyecto </h2>
-      <div class="field">
-        <label class="label">Nombre del Proyecto</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" v-model="nombre_proyecto" >
+      <h2 class="title is-4">Agregar imágen a proyecto</h2>
+      <div v-for="r1 in regs.proyectos">
+        <div class="field" v-for="r in r1">
+          <label class="radio">
+            <input type="radio"
+            v-model="checkedCategories"
+            id="r.nombre_proyecto"
+            :value="r.nombre_proyecto"
+            @change="check($event)">
+            {{ r.nombre_proyecto }}
+          </label>
         </div>
       </div>
-
-
-      <div class="field">
-        <label class="label">Descripción</label>
-        <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
-        <!--  <p class="help is-success">This username is available</p>-->
-      </div>
-      <div class="field">
-        <label class="label">Cliente</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" v-model="cliente">
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Software</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" v-model="software">
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Links</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" v-model="links">
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="columns is-desktop">
-        <div class="column">
-        <label class="label">Fecha Inicio</label>
-        <div class="control">
-          <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio">
-        </div>
-        </div>
-        <div class="column">
-        <label class="label">Fecha Fin</label>
-        <div class="control">
-          <input class="input" type="date" placeholder="Text input" v-model="fecha_fin">
-        </div>
-        </div>
-        </div>
-      </div>
-      <label class="label">Imágen de portada</label>
-      <div class="file">
-
-        <label class="file-label">
-          <input class="file-input" type="file" name="resume">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
-            </span>
-            <span class="file-label">
-              Choose a file…
-            </span>
+      <label class="file-label">
+        <input class="file-input" type="file" name="resume">
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
           </span>
-        </label>
-      </div>
-
-      <div class="field">
-        <label class="label">Incluir en CofCof</label>
-        <div class="columns is-desktop">
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addcofcof"
-              value="descripcion"
-              @change="checkadd($event)">
-              Descripción
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addcofcof"
-              value="cliente"
-              @change="checkadd($event)">
-              Cliente
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addcofcof"
-              value="software"
-              @change="checkadd($event)">
-              Software
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addcofcof"
-              value="fechas"
-              @change="checkadd($event)">
-              Fechas
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Incluir en Personal</label>
-        <div class="columns is-desktop">
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addpersonal"
-              value="descripcion"
-              @change="checkadd($event)">
-              Descripción
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addpersonal"
-              value="cliente"
-              @change="checkadd($event)">
-              Cliente
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addpersonal"
-              value="software"
-              @change="checkadd($event)">
-              Software
-            </label>
-          </div>
-          <div class="column">
-            <label class="checkbox">
-              <input type="checkbox"
-              v-model="addpersonal"
-              value="fechas"
-              @change="checkadd($event)">
-              Fechas
-            </label>
-          </div>
-        </div>
-      </div>
-
-
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
     </br>
     <div class="field is-grouped">
       <div class="control">
-        <button v-on:click="crear_proyecto" class="button is-link">Submit</button>
+        <button class="button is-link" @click='uploadFile()'>Submit</button>
       </div>
     </div>
   </form>
-
   <form class="box">
-    <h2 class="title is-4">Agregar imágen a proyecto</h2>
-    <div v-for="r1 in regs.proyectos">
-    <div class="field" v-for="r in r1">
-      <label class="radio">
-        <input type="radio"
-         v-model="checkedCategories"
-         id="r.nombre_proyecto"
-         :value="r.nombre_proyecto"
-         @change="check($event)">
-         {{ r.nombre_proyecto }}
-      </label>
-    </div>
-    </div>
-    <label class="file-label">
-      <input class="file-input" type="file" name="resume">
-      <span class="file-cta">
-        <span class="file-icon">
-          <i class="fas fa-upload"></i>
-        </span>
-        <span class="file-label">
-          Choose a file…
-        </span>
-      </span>
-    </label>
-  </br>
-  <div class="field is-grouped">
-    <div class="control">
-      <button class="button is-link" @click='uploadFile()'>Submit</button>
-    </div>
-  </div>
-</form>
-<form class="box">
-  <div class="columns is-desktop">
-    <div class="column">
-      <h2 class="title is-4">Proyectos en CofCof</h2>
-      <div class="field" v-for="r in proyectoscofcof">
-        <label class="checkbox">
-          <input type="checkbox"
-          v-model="r.checked"
-          :id="r.nombre_proyecto"
-          :value="r.nombre_proyecto"
-          @change="checkcofcof($event)">
-          {{ r.nombre_proyecto }}
-        </label>
+    <div class="columns is-desktop">
+      <div class="column">
+        <h2 class="title is-4">Proyectos en CofCof</h2>
+        <div  v-for="proyecto in proyectoscofcof">
+          <div class="field" v-for="r in proyecto">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="r.checked"
+              :id="r.nombre_proyecto"
+              :value="r.nombre_proyecto"
+              >
+              {{ r.nombre_proyecto }}
+            </label>
+          </div>
+        </div>
+
       </div>
 
-    </div>
+      <div class="column">
+        <h2 class="title is-4">Proyectos en Personal</h2>
+        <div  v-for="proyecto in proyectospersonal">
+          <div class="field" v-for="r in proyecto">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="r.checked"
+              :id="r.nombre_proyecto"
+              :value="r.nombre_proyecto"
+              >
+              {{ r.nombre_proyecto }}
+            </label>
+          </div>
+        </div>
 
-    <div class="column">
-      <h2 class="title is-4">Proyectos en Personal</h2>
-      <div class="field" v-for="r in proyectospersonal">
-        <label class="checkbox">
-          <input type="checkbox"
-          v-model="r.checked"
-          :id="r.nombre_proyecto"
-          :value="r.nombre_proyecto"
-          @change="checkpersonal($event)">
-          {{ r.nombre_proyecto }}
-        </label>
       </div>
-
     </div>
-  </div>
     <div class="field is-grouped">
       <div class="control">
         <button v-on:click="asignar_proyecto" class="button is-link">Submit</button>
       </div>
     </div>
 
-</form>
+  </form>
 
 
-<form class="box">
-  <h2 class="title is-4">Eliminar Proyecto </h2>
-  <div v-for="r1 in regs.proyectos">
-  <div class="field" v-for="r in r1">
-    <label class="radio">
-      <input type="radio"
-       v-model="nombre_proyecto_checked_delete"
-       id="r.nombre_proyecto"
-       :value="r.nombre_proyecto"
-       >
-       {{ r.nombre_proyecto }}
-    </label>
-  </div>
-  </div>
-
-  <div class="field is-grouped">
-    <div class="control">
-      <button v-on:click="eliminar_proyecto" class="button is-link">Submit</button>
+  <form class="box">
+    <h2 class="title is-4">Eliminar Proyecto </h2>
+    <div v-for="r1 in regs.proyectos">
+      <div class="field" v-for="r in r1">
+        <label class="radio">
+          <input type="radio"
+          v-model="nombre_proyecto_checked_delete"
+          id="r.nombre_proyecto"
+          :value="r.nombre_proyecto"
+          >
+          {{ r.nombre_proyecto }}
+        </label>
+      </div>
     </div>
-  </div>
-</form>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button v-on:click="eliminar_proyecto" class="button is-link">Submit</button>
+      </div>
+    </div>
+  </form>
 </section>
 </div>
 </body>
