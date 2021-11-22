@@ -152,9 +152,8 @@
       <div class="field" v-for="r in regs.asignacion">
         <label class="checkbox">
           <input type="checkbox"
-          v-model="checkedCategories"
+
           :checked="r.personal == 1 ? true: false"
-          :true-value="1" 
           :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
