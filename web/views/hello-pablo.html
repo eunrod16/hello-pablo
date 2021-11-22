@@ -89,6 +89,90 @@
         </label>
       </div>
 
+      <div class="field">
+        <label class="label">Incluir en CofCof</label>
+        <div class="columns is-desktop">
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addcofcof"
+              :value="descripcion"
+              @change="checkadd($event)">
+              Descripción
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addcofcof"
+              :value="cliente"
+              @change="checkadd($event)">
+              Cliente
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addcofcof"
+              :value="software"
+              @change="checkadd($event)">
+              Software
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addcofcof"
+              :value="fechas"
+              @change="checkadd($event)">
+              Fechas
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Incluir en Personal</label>
+        <div class="columns is-desktop">
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addpersonal"
+              :value="descripcion"
+              @change="checkadd($event)">
+              Descripción
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addpersonal"
+              :value="cliente"
+              @change="checkadd($event)">
+              Cliente
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addpersonal"
+              :value="software"
+              @change="checkadd($event)">
+              Software
+            </label>
+          </div>
+          <div class="column">
+            <label class="checkbox">
+              <input type="checkbox"
+              v-model="addpersonal"
+              :value="fechas"
+              @change="checkadd($event)">
+              Fechas
+            </label>
+          </div>
+        </div>
+      </div>
+
 
     </br>
     <div class="field is-grouped">
@@ -104,10 +188,10 @@
       <label class="radio">
         <input type="radio"
          v-model="checkedCategories"
-         id="r.nombre_proyecto"
-         :value="r.nombre_proyecto"
+         id="r[0].nombre_proyecto"
+         :value="r[0].nombre_proyecto"
          @change="check($event)">
-         {{ r.nombre_proyecto }}
+         {{ r[0].nombre_proyecto }}
       </label>
     </div>
     <label class="file-label">

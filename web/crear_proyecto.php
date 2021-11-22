@@ -6,7 +6,7 @@ $post = json_decode(file_get_contents('php://input'), true);
 
 
 $asignacion_proyectos->nombre_proyecto =  $post["nombre_proyecto"];
-$asignacion_proyectos->checked = 0;
+$asignacion_proyectos->checked = false;
 
 
 
