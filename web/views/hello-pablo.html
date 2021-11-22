@@ -100,7 +100,6 @@
 
   <form class="box">
     <h2 class="title is-4">Agregar imágen a proyecto</h2>
-{{regs}}
     <div class="field" v-for="r in regs.proyectos">
       <label class="radio">
         <input type="radio"
@@ -134,10 +133,14 @@
   <div class="columns is-desktop">
     <div class="column">
       <h2 class="title is-4">Proyectos en CofCof</h2>
-      {{regs.asignacion}}
-      <div class="field">
+      <div class="field" v-for="r in regs.asignacion">
         <label class="checkbox">
-          <input type="checkbox" checked>
+          <input type="checkbox"
+          v-model="checkedCategories"
+          id="r.nombre_proyecto"
+          :value="r.nombre_proyecto"
+          @change="check($event)"
+          :checked="r.cofcof == 1">
           Proyecto 1
         </label>
       </div>
@@ -146,9 +149,14 @@
 
     <div class="column">
       <h2 class="title is-4">Proyectos en Personal</h2>
-      <div class="field">
+      <div class="field" v-for="r in regs.asignacion">
         <label class="checkbox">
-          <input type="checkbox" checked>
+          <input type="checkbox"
+          v-model="checkedCategories"
+          id="r.nombre_proyecto"
+          :value="r.nombre_proyecto"
+          @change="check($event)"
+          :checked="r.personal == 1">
           Proyecto 1
         </label>
       </div>

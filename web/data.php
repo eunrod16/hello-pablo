@@ -60,7 +60,7 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 $data = json_decode($response);
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto.json";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
