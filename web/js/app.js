@@ -73,14 +73,9 @@ var app = new Vue({
     },
 
     check: function(e) {
-      this.nombre_proyecto_checked = this.checkedCategories[0]
       console.log(this.nombre_proyecto_checked)
     },
 
-
-    checkadd: function(e) {
-      console.log(this.addcofcof)
-    },
 
     asignar_proyecto: function(e) {
       this.$http.post('pagina_proyecto.php',{
