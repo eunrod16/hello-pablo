@@ -18,6 +18,7 @@ var app = new Vue({
     nombre_proyecto_checked_delete:"",
     addcofcof:[],
     addpersonal:[],
+    mediaName:"No file uploaded"
 
   },
   methods: {
@@ -87,6 +88,9 @@ var app = new Vue({
         this.telefono="";
       });
     },
+    videoChoosen:function(e){
+            this.mediaName = e.target.files[0].name;
+        },
     uploadFile: function(){
 
       this.file = this.$refs.file.files[0];

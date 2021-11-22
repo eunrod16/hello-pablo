@@ -23,6 +23,7 @@ function asign_link_object($nombre_proyecto, $link){
   curl_setopt( $curl, CURLOPT_URL, $url );
   curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
   curl_setopt( $curl, CURLOPT_POSTFIELDS, '{"nombre_proyecto":"'.$nombre_proyecto.'","link_media":"'.$link.'"}' );
+  $response = curl_exec($curl);
 }
 
 
