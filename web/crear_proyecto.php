@@ -4,18 +4,6 @@ if ( !isSet($_SESSION['data']) ) $_SESSION['data']=array();
 
 $post = json_decode(file_get_contents('php://input'), true);
 
-// if ( isSet( $post["nombre"] ) ) {
-// 	array_push( $_SESSION['data'], array( "nombre"=>$post["nombre"], "telefono"=>$post["telefono"] ) );
-// }
-// $data = {
-// 	nombre_proyecto: "",
-// 	descripcion:"",
-// 	cliente:"",
-// 	software:"",
-// 	fecha_inicio:"",
-// 	fecha_fin:""
-//
-// }
 
 $asignacion_proyectos->nombre_proyecto =  $post["nombre_proyecto"];
 $asignacion_proyectos->checked = 0;
@@ -23,13 +11,13 @@ $asignacion_proyectos->checked = 0;
 
 
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof.json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($asignacion_proyectos) );
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );

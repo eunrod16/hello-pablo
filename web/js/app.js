@@ -15,6 +15,7 @@ var app = new Vue({
     descripcion:'',
     proyectoscofcof: [],
     proyectospersonal: [],
+    nombre_proyecto_checked:""
 
   },
   methods: {
@@ -60,8 +61,8 @@ var app = new Vue({
     },
 
     check: function(e) {
-      this.results = this.checkedCategories
-      console.log(this.results)
+      this.nombre_proyecto_checked = this.checkedCategories[0]
+      console.log(this.nombre_proyecto_checked)
     },
 
     checkcofcof: function(e) {
@@ -97,6 +98,7 @@ var app = new Vue({
 
       let formData = new FormData();
       formData.append('file', this.file);
+      formData.append('nombre_proyecto', this.nombre_proyecto_checked);
 
       axios.post('ajaxfile.php', formData,
       {
