@@ -67,8 +67,8 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 $asignacion_proyectos = json_decode($response);
 
-$dataenviar->proyectos = $data
-$dataenviar->asignacion = $asignacion_proyectos
+$dataenviar->proyectos = $data;
+$dataenviar->asignacion = $asignacion_proyectos;
 
 
 
