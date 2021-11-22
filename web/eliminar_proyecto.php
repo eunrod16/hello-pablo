@@ -10,10 +10,20 @@ $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$post["no
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "DELETE" );
-
-
-
 $response = curl_exec($curl);
+
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$post["nombre_proyecto"].".json";
+$curl = curl_init();
+curl_setopt( $curl, CURLOPT_URL, $url );
+curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "DELETE" );
+$response = curl_exec($curl);
+
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/personal/".$post["nombre_proyecto"].".json";
+$curl = curl_init();
+curl_setopt( $curl, CURLOPT_URL, $url );
+curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "DELETE" );
+$response = curl_exec($curl);
+
 $data = json_decode($response);
 echo json_encode($data);
 //echo $data
