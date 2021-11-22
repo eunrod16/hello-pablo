@@ -61,16 +61,6 @@ var app = new Vue({
       });
     },
 
-    enviar: function() {
-      this.$http.post('data.php',{
-        nombre: this.nombre,
-        telefono: this.telefono
-      }).then(function(response){
-        this.regs = response.body;
-        this.nombre="";
-        this.telefono="";
-      });
-    },
 
     check: function(e) {
       console.log(this.nombre_proyecto_checked)
