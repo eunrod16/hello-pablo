@@ -16,8 +16,18 @@ var app = new Vue({
     proyectoscofcof: [],
     proyectospersonal: [],
     nombre_proyecto_checked:"",
-    addcofcof:[],
-    addpersonal:[]
+    addcofcof:{
+      cliente:false,
+      software:false,
+      descripcion:false,
+      fechas:false
+    },
+    addpersonal:{
+      cliente:false,
+      software:false,
+      descripcion:false,
+      fechas:false
+    }
 
   },
   methods: {
