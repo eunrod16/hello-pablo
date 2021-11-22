@@ -88,7 +88,7 @@ var app = new Vue({
         this.telefono="";
       });
     },
-    videoChoosen:function(e){
+    mediaChoosen:function(e){
             this.mediaName = e.target.files[0].name;
         },
     uploadFile: function(){
