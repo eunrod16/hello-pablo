@@ -50,30 +50,29 @@ curl_setopt( $curl, CURLOPT_POSTFIELDS, '{"id_proyecto":1,"link_media":"link de 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-$method = "GET";
-$data = "";
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 
-switch ($method) {
-	case "GET":
-	//curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-	break;
-	case "POST":
-	curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-	break;
-	case "PUT":
-	curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-	break;
-	case "DELETE":
-	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
-	curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-	break;
-}
+	// case "DELETE":
+	// curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+	// curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+	// break;
+
 $response = curl_exec($curl);
 $data = json_decode($response);
-echo json_encode($data);
+
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos.json";
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+$response = curl_exec($curl);
+$asignacion_proyectos = json_decode($response);
+
+$dataenviar->proyectos = $data
+$dataenviar->asignacion = $asignacion_proyectos
+
+
+
+echo json_encode($dataenviar);
 //echo $data
 
 
