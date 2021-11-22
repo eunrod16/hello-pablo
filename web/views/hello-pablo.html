@@ -137,11 +137,11 @@
         <label class="checkbox">
           <input type="checkbox"
           v-model="checkedCategories"
-          id="r.nombre_proyecto"
+          :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
-          :checked="r.cofcof == 1">
-          Proyecto 1
+          :checked="true">
+          {{ r.nombre_proyecto }}
         </label>
       </div>
 
@@ -153,11 +153,11 @@
         <label class="checkbox">
           <input type="checkbox"
           v-model="checkedCategories"
-          id="r.nombre_proyecto"
+          :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
           :checked="r.personal == 1">
-          Proyecto 1
+          {{ r.nombre_proyecto }}
         </label>
       </div>
 
