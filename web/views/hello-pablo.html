@@ -100,8 +100,8 @@
 
   <form class="box">
     <h2 class="title is-4">Agregar imágen a proyecto</h2>
-
-    <div class="field" v-for="r in regs">
+{{regs}}
+    <div class="field" v-for="r in regs.proyectos">
       <label class="radio">
         <input type="radio"
          v-model="checkedCategories"
