@@ -154,6 +154,7 @@
           <input type="checkbox"
           v-model="checkedCategories"
           :checked="r.personal == 1 ? true: false"
+          :true-value="1" 
           :id="r.nombre_proyecto"
           :value="r.nombre_proyecto"
           @change="check($event)"
