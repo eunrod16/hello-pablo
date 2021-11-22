@@ -61,45 +61,52 @@ var app = new Vue({
 
     check: function(e) {
       this.results = this.checkedCategories
-		console.log(this.results)
-  },
+      console.log(this.results)
+    },
 
-  enviar_proyectos: function() {
-    this.$http.post('data.php',{
-      nombre: this.nombre,
-      telefono: this.telefono
-    }).then(function(response){
-      this.regs = response.body;
-      this.nombre="";
-      this.telefono="";
-    });
-  },
-  uploadFile: function(){
+    checkcofcof: function(e) {
+      console.log(this.proyectoscofcof)
+    },
+    checkpersonal: function(e) {
+      console.log(this.proyectospersonal)
+    },
 
-     this.file = this.$refs.file.files[0];
+    enviar_proyectos: function() {
+      this.$http.post('data.php',{
+        nombre: this.nombre,
+        telefono: this.telefono
+      }).then(function(response){
+        this.regs = response.body;
+        this.nombre="";
+        this.telefono="";
+      });
+    },
+    uploadFile: function(){
 
-     let formData = new FormData();
-     formData.append('file', this.file);
+      this.file = this.$refs.file.files[0];
 
-     axios.post('ajaxfile.php', formData,
-     {
+      let formData = new FormData();
+      formData.append('file', this.file);
+
+      axios.post('ajaxfile.php', formData,
+      {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-     })
-     .then(function (response) {
+      })
+      .then(function (response) {
 
         if(!response.data){
-           alert('File not uploaded.');
+          alert('File not uploaded.');
         }else{
-           alert('File uploaded successfully.');
+          alert('File uploaded successfully.');
         }
 
-     })
-     .catch(function (error) {
-         console.log(error);
-     });
-  },
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
 
   },
   created: function() {
