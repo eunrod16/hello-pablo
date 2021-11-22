@@ -33,7 +33,7 @@ $extension = pathinfo($filename, PATHINFO_EXTENSION);
 if(in_array(strtolower($extension),$valid_extensions) ) {
    if(move_uploaded_file($_FILES['file']['tmp_name'], __DIR__."/images/f".$filename)){
       upload_object("hopeforzeropolio.appspot.com",$filename,__DIR__."/images/f".$filename);
-      asign_link_object($nombre_proyecto,"firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615")
+      asign_link_object($nombre_proyecto,"firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615");
       echo 1;
    }else{
       echo 0;
