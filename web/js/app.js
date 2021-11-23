@@ -31,8 +31,9 @@ var app = new Vue({
         this.regs = response.body;
         this.proyectoscofcof = response.body.asignacion.cofcof;
         this.proyectospersonal = response.body.asignacion.personal;
-        this.ordencofcof = response.body.orden.cofcof;
-        this.ordenpersonal = response.body.orden.personal;
+        this.ordencofcof = Object.values(response.body.orden.cofcof);
+        this.ordenpersonal =Object.values(response.body.orden.personal);
+
       }, function(){
         alert('Error!');
       });
