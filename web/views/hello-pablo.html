@@ -21,10 +21,10 @@
          <section class="section">
             <div class="tabs">
                <ul>
-                  <li class="is-active"><a v-model="currentab=1">Crear</a></li>
-                  <li><a v-model="currentab=1">Editar</a></li>
-                  <li><a v-model="currentab=1">Eliminar</a></li>
-                  <li><a v-model="currentab=1">Ordenar/Asignar</a></li>
+                  <li v-model="currentab=1" class="is-active"><a>Crear</a></li>
+                  <li v-model="currentab=2"><a>Editar</a></li>
+                  <li v-model="currentab=3"><a>Eliminar</a></li>
+                  <li v-model="currentab=4"><a>Ordenar/Asignar</a></li>
                </ul>
             </div>
             <form class="box">
