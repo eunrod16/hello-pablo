@@ -34,7 +34,8 @@ var app = new Vue({
         var json_ordencofcof = response.body.orden.cofcof;
         var json_ordenpersonal =response.body.orden.personal;
 
-        this.ordenpersonal,this.ordencofcof = [];
+        this.ordenpersonal = [];
+        this.ordencofcof = [];
 
         for(var i in json_ordencofcof)
         this.ordencofcof.push({i: json_ordencofcof [i]});
