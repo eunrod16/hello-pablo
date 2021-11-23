@@ -31,8 +31,16 @@ var app = new Vue({
         this.regs = response.body;
         this.proyectoscofcof = response.body.asignacion.cofcof;
         this.proyectospersonal = response.body.asignacion.personal;
-        this.ordencofcof = Object.values(response.body.orden.cofcof);
-        this.ordenpersonal =Object.values(response.body.orden.personal);
+        var json_ordencofcof = response.body.orden.cofcof;
+        var json_ordenpersonal =response.body.orden.personal;
+
+        this.ordenpersonal,this.ordencofcof = [];
+
+        for(var i in json_ordencofcof)
+        this.ordencofcof.push([i, json_ordencofcof [i]]);
+
+        for(var i in json_ordenpersonal)
+        this.ordencofcof.push([i, json_ordenpersonal [i]]);
 
       }, function(){
         alert('Error!');
@@ -106,8 +114,8 @@ var app = new Vue({
       });
     },
     mediaChoosen:function(e){
-            this.mediaName = e.target.files[0].name;
-        },
+      this.mediaName = e.target.files[0].name;
+    },
     uploadFile: function(){
 
       this.file = this.$refs.file.files[0];
