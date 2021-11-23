@@ -79,7 +79,7 @@ var app = new Vue({
     },
     setActive (menuItem) {
       this.currentab = menuItem
-    }
+    },
 
     ordenar_proyectos:function(e){
       this.$http.post('eliminar_proyecto_2.php',{
