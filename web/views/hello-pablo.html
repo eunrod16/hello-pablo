@@ -306,8 +306,8 @@
           <ul class="list-group list-group-flush" style="min-height: 10px;">
 
             <draggable v-model="list2" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
-              <li class="list-group-item" v-for="element in list2"> {{element.name}}</li>
-              <li class="list-group-item" v-if="list2.length === 0"></li>
+              <li class="list-group-item" v-for="element in list"> {{element.name}}</li>
+              <li class="list-group-item" v-if="list.length === 0"></li>
             </draggable>
 
           </ul>
