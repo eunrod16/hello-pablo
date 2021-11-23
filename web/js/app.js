@@ -33,15 +33,8 @@ var app = new Vue({
         this.proyectospersonal = response.body.asignacion.personal;
         var json_ordencofcof = response.body.orden.cofcof;
         var json_ordenpersonal =response.body.orden.personal;
-
         this.ordenpersonal =json_ordenpersonal ;
         this.ordencofcof = json_ordencofcof;
-
-        // for(var i in json_ordencofcof)
-        // this.ordencofcof.push({name: json_ordencofcof [i]});
-        //
-        // for(var i in json_ordenpersonal)
-        // this.ordenpersonal.push({name: json_ordenpersonal [i]});
 
       }, function(){
         alert('Error!');
@@ -81,9 +74,12 @@ var app = new Vue({
     check: function(e) {
       console.log(this.nombre_proyecto_checked)
     },
-    checkMove: function(e) {
-      window.console.log("Future index: " + e.draggedContext.futureIndex);
+    isActive (menuItem) {
+      return this.currentab === menuItem
     },
+    setActive (menuItem) {
+      this.currentab = menuItem
+    }
 
     ordenar_proyectos:function(e){
       this.$http.post('eliminar_proyecto_2.php',{

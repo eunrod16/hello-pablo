@@ -21,10 +21,10 @@
          <section class="section">
             <div class="tabs">
                <ul>
-                  <li v-model="currentab=1" class="is-active"><a>Crear</a></li>
-                  <li v-model="currentab=2"><a>Editar</a></li>
-                  <li v-model="currentab=3"><a>Eliminar</a></li>
-                  <li v-model="currentab=4"><a>Ordenar/Asignar</a></li>
+                  <li @click.prevent="setActive(1)" :class="{ is-active: isActive(1) }"><a>Crear</a></li>
+                  <li @click.prevent="setActive(2)" :class="{ is-active: isActive(2) }"><a>Editar</a></li>
+                  <li @click.prevent="setActive(3)" :class="{ is-active: isActive(3) }"><a>Eliminar</a></li>
+                  <li @click.prevent="setActive(4)" :class="{ is-active: isActive(4) }""><a>Ordenar/Asignar</a></li>
                </ul>
             </div>
             <form class="box">
@@ -95,8 +95,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addcofcof"
-                           value="descripcion"
-                           @change="checkadd($event)">
+                           value="descripcion">
                         Descripción
                         </label>
                      </div>
@@ -104,8 +103,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addcofcof"
-                           value="cliente"
-                           @change="checkadd($event)">
+                           value="cliente">
                         Cliente
                         </label>
                      </div>
@@ -113,8 +111,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addcofcof"
-                           value="software"
-                           @change="checkadd($event)">
+                           value="software">
                         Software
                         </label>
                      </div>
@@ -122,8 +119,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addcofcof"
-                           value="fechas"
-                           @change="checkadd($event)">
+                           value="fechas">
                         Fechas
                         </label>
                      </div>
@@ -136,8 +132,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addpersonal"
-                           value="descripcion"
-                           @change="checkadd($event)">
+                           value="descripcion">
                         Descripción
                         </label>
                      </div>
@@ -145,8 +140,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addpersonal"
-                           value="cliente"
-                           @change="checkadd($event)">
+                           value="cliente">
                         Cliente
                         </label>
                      </div>
@@ -154,8 +148,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addpersonal"
-                           value="software"
-                           @change="checkadd($event)">
+                           value="software">
                         Software
                         </label>
                      </div>
@@ -163,8 +156,7 @@
                         <label class="checkbox">
                         <input type="checkbox"
                            v-model="addpersonal"
-                           value="fechas"
-                           @change="checkadd($event)">
+                           value="fechas">
                         Fechas
                         </label>
                      </div>
