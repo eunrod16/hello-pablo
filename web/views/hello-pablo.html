@@ -281,7 +281,7 @@
                      <h3 class="title is-5">Proyectos en CofCof</h3>
                      <div class="card">
                         <ul class="list-group list-group-flush" style="min-height: 10px;">
-                           <draggable v-model="list2" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
+                           <draggable v-model="list" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
                               <li class="list-group-item" v-for="element in list"> {{element.name}}</li>
                               <li class="list-group-item" v-if="list.length === 0"></li>
                            </draggable>
@@ -292,7 +292,7 @@
                      <h3 class="title is-5">Proyectos en Personal</h3>
                      <div class="card">
                         <ul class="list-group list-group-flush" style="min-height: 10px;">
-                           <draggable v-model="list2" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
+                           <draggable v-model="list" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
                               <li class="list-group-item" v-for="element in list"> {{element.name}}</li>
                               <li class="list-group-item" v-if="list.length === 0"></li>
                            </draggable>
