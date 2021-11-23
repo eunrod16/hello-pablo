@@ -23,6 +23,15 @@
   <div id='vueapp'>
     <section class="section">
 
+      <div class="tabs">
+        <ul>
+          <li class="is-active"><a>Crear</a></li>
+          <li><a>Editar Info</a></li>
+          <li><a>Eliminar</a></li>
+          <li><a>Ordenar/Asignar</a></li>
+        </ul>
+      </div>
+
       <form class="box">
         <h2 class="title is-4">Crear Proyecto </h2>
         <div class="field">
@@ -287,6 +296,31 @@
       </div>
     </div>
   </form>
+
+  <div class="col-6">
+    <h3>Draggable {{ draggingInfo }}</h3>
+
+    <draggable
+    :list="list"
+    :disabled="!enabled"
+    class="list-group"
+    ghost-class="ghost"
+    :move="checkMove"
+    @start="dragging = true"
+    @end="dragging = false"
+    >
+    <div
+    class="list-group-item"
+    v-for="element in list"
+    :key="element.name"
+    >
+    {{ element.name }}
+  </div>
+</draggable>
+</div>
+
+<rawDisplayer class="col-3" :value="list" title="List" />
+
 </section>
 </div>
 </body>
