@@ -37,10 +37,10 @@ var app = new Vue({
         this.ordenpersonal,this.ordencofcof = [];
 
         for(var i in json_ordencofcof)
-        this.ordencofcof.push([i, json_ordencofcof [i]]);
+        this.ordencofcof.push({i: json_ordencofcof [i]});
 
         for(var i in json_ordenpersonal)
-        this.ordencofcof.push([i, json_ordenpersonal [i]]);
+        this.ordencofcof.push({i: json_ordenpersonal [i]});
 
       }, function(){
         alert('Error!');
