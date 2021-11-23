@@ -18,7 +18,14 @@ var app = new Vue({
     nombre_proyecto_checked_delete:"",
     addcofcof:[],
     addpersonal:[],
-    mediaName:"No file uploaded"
+    mediaName:"No file uploaded",
+    enabled: true,
+      list: [
+        { name: "John", id: 0 },
+        { name: "Joao", id: 1 },
+        { name: "Jean", id: 2 }
+      ],
+      dragging: false
 
   },
   methods: {
@@ -66,7 +73,9 @@ var app = new Vue({
     check: function(e) {
       console.log(this.nombre_proyecto_checked)
     },
-
+    checkMove: function(e) {
+      window.console.log("Future index: " + e.draggedContext.futureIndex);
+    },
 
     asignar_proyecto: function(e) {
       this.$http.post('pagina_proyecto.php',{
@@ -120,6 +129,11 @@ var app = new Vue({
     },
 
   },
+  computed: {
+  draggingInfo() {
+    return this.dragging ? "under drag" : "";
+  }
+},
   created: function() {
     this.reloadList();
   }
