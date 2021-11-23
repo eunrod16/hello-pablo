@@ -74,15 +74,7 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 $orden_proyecto = json_decode($response);
 
-$nombredelproyecto = 'proyecto 6';
-$array =  $orden_proyecto["cofcof"];
-$nuevo_array=[];
-foreach ($array as &$valor) {
-	if ($nombredelproyecto != $valor["name"])
-		array_push($nuevo_array, $valor);
-}
 
-$orden_proyecto["cofcof"] = $nuevo_array;
 
 $dataenviar->proyectos = $data;
 $dataenviar->asignacion = $asignacion_proyectos;

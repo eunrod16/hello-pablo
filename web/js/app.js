@@ -86,7 +86,7 @@ var app = new Vue({
     },
 
     ordenar_proyectos:function(e){
-      this.$http.post('orden_proyecto.php',{
+      this.$http.post('eliminar_proyecto_2.php',{
         proyectoscofcof: this.ordencofcof,
         proyectospersonal: this.ordenpersonal
       }).then(function(response){
