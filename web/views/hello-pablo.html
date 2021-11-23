@@ -292,7 +292,7 @@
                      <h3 class="title is-5">Proyectos en Personal</h3>
                      <div class="card">
                         <ul class="list-group list-group-flush" style="min-height: 10px;">
-                           <draggable v-model="ordenpersonal" :options="{ dragClass:'dragItem', ghostClass:'dropHere'}">
+                           <draggable v-model="ordenpersonal" :options="{group:'proyect', dragClass:'dragItem', ghostClass:'dropHere'}">
                               <li class="list-group-item" v-for="element in ordenpersonal"> {{element.name}}</li>
                               <li class="list-group-item" v-if="ordenpersonal.length === 0"></li>
                            </draggable>
