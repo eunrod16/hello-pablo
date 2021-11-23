@@ -297,33 +297,23 @@
     </div>
   </form>
 
-  <div class="col-6">
-    <h3>Draggable {{ draggingInfo }}</h3>
+  <div class="col-sm-6">
+        <div class="card">
+          <div class="card-header">
+            List 2 Draggable
+          </div>
 
-    <draggable
-    :list="list"
-    :disabled="!enabled"
-    class="list-group"
-    ghost-class="ghost"
-    :move="checkMove"
-    @start="dragging = true"
-    @end="dragging = false"
-    >
-    <div
-    class="list-group-item"
-    v-for="element in list"
-    :key="element.name"
-    >
-    {{ element.name }}
-  </div>
-</draggable>
-</div>
+          <ul class="list-group list-group-flush" style="min-height: 10px;">
 
-<ul id="items">
-	<li>item 1</li>
-	<li>item 2</li>
-	<li>item 3</li>
-</ul>
+            <draggable v-model="list2" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
+              <li class="list-group-item" v-for="element in list2"> {{element.name}}</li>
+              <li class="list-group-item" v-if="list2.length === 0"></li>
+            </draggable>
+
+          </ul>
+
+        </div>
+      </div>
 
 
 

@@ -17,13 +17,11 @@ var app = new Vue({
     addcofcof:[],
     addpersonal:[],
     mediaName:"No file uploaded",
-    enabled: true,
       list: [
         { name: "John", id: 0 },
         { name: "Joao", id: 1 },
         { name: "Jean", id: 2 }
       ],
-      dragging: false,
       currentab: 0
 
   },
