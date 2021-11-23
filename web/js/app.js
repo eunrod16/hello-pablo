@@ -75,6 +75,10 @@ var app = new Vue({
       window.console.log("Future index: " + e.draggedContext.futureIndex);
     },
 
+    ordenar_proyectos:function(e){
+      console.log(this.list)
+    },
+
     asignar_proyecto: function(e) {
       this.$http.post('pagina_proyecto.php',{
         proyectoscofcof: this.proyectoscofcof,
@@ -127,11 +131,7 @@ var app = new Vue({
     },
 
   },
-  computed: {
-  draggingInfo() {
-    return this.dragging ? "under drag" : "";
-  }
-},
+
   created: function() {
     this.reloadList();
   }
