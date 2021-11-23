@@ -23,11 +23,12 @@
                <ul>
                   <li @click.prevent="setActive(1)" :class="{ 'is-active': isActive(1) }"><a>Crear</a></li>
                   <li @click.prevent="setActive(2)" :class="{ 'is-active': isActive(2) }"><a>Editar</a></li>
-                  <li @click.prevent="setActive(3)" :class="{ 'is-active': isActive(3) }"><a>Eliminar</a></li>
-                  <li @click.prevent="setActive(4)" :class="{ 'is-active': isActive(4) }""><a>Ordenar/Asignar</a></li>
+                  <li @click.prevent="setActive(3)" :class="{ 'is-active': isActive(3) }"><a>Asignar</a></li>
+                  <li @click.prevent="setActive(4)" :class="{ 'is-active': isActive(4) }"><a>Eliminar</a></li>
+
                </ul>
             </div>
-            <form class="box">
+            <form v-show="currentab==1"class="box">
                <h2 class="title is-4">Crear Proyecto </h2>
                <div class="field">
                   <label class="label">Nombre del Proyecto</label>
@@ -169,7 +170,7 @@
                   </div>
                </div>
             </form>
-            <form class="box">
+            <form v-show="currentab==1" class="box">
                <h2 class="title is-4">Agregar imágen a proyecto</h2>
                <div v-for="r1 in regs.proyectos">
                   <div class="field" v-for="r in r1">
@@ -208,7 +209,7 @@
                   </div>
                </div>
             </form>
-            <form v-show="currentab==4" class="box">
+            <form v-show="currentab==3" class="box">
               <h2 class="title is-4">Asignar Proyectos </h2>
                <div class="columns is-desktop">
                   <div class="column">
@@ -247,7 +248,7 @@
                   </div>
                </div>
             </form>
-            <form v-show="currentab==3" class="box">
+            <form v-show="currentab==4" class="box">
                <h2 class="title is-4">Eliminar Proyecto </h2>
                <div v-for="r1 in regs.proyectos">
                   <div class="field" v-for="r in r1">
@@ -267,7 +268,7 @@
                   </div>
                </div>
             </form>
-            <form v-show="currentab==4" class="box">
+            <form v-show="currentab==3" class="box">
                <h2 class="title is-4">Ordenar Proyectos </h2>
                <div class="columns is-desktop">
                   <div class="column">
