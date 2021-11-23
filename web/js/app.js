@@ -1,12 +1,4 @@
 
-let id = 1;
-export default {
-name: "simple",
-display: "Simple",
-order: 0,
-components: {
-  draggable
-},
 var app = new Vue({
   el: '#vueapp',
   data: {
