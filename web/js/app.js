@@ -20,7 +20,7 @@ var app = new Vue({
     ordenpersonal:[],
     ordencofcof:[],
 
-    currentab: 0
+    currentab: 1
 
   },
 
