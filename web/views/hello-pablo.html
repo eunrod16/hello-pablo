@@ -281,9 +281,9 @@
                      <h3 class="title is-5">Proyectos en CofCof</h3>
                      <div class="card">
                         <ul class="list-group list-group-flush" style="min-height: 10px;">
-                           <draggable v-model="list" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
-                              <li class="list-group-item" v-for="element in list"> {{element.name}}</li>
-                              <li class="list-group-item" v-if="list.length === 0"></li>
+                           <draggable v-model="ordencofcof" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
+                              <li class="list-group-item" v-for="element in ordencofcof"> {{element.name}}</li>
+                              <li class="list-group-item" v-if="ordencofcof.length === 0"></li>
                            </draggable>
                         </ul>
                      </div>
@@ -292,15 +292,16 @@
                      <h3 class="title is-5">Proyectos en Personal</h3>
                      <div class="card">
                         <ul class="list-group list-group-flush" style="min-height: 10px;">
-                           <draggable v-model="list" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
-                              <li class="list-group-item" v-for="element in list"> {{element.name}}</li>
-                              <li class="list-group-item" v-if="list.length === 0"></li>
+                           <draggable v-model="ordenpersonal" :options="{group:'people', dragClass:'dragItem', ghostClass:'dropHere'}">
+                              <li class="list-group-item" v-for="element in ordenpersonal"> {{element.name}}</li>
+                              <li class="list-group-item" v-if="ordenpersonal.length === 0"></li>
                            </draggable>
                         </ul>
                      </div>
                   </div>
                </div>
-               {{list}}
+               {{ordenpersonal}}
+               {{ordencofcof}}
                <div class="field is-grouped">
                   <div class="control">
                      <button v-on:click="ordenar_proyectos" class="button is-link">Submit</button>

@@ -17,12 +17,10 @@ var app = new Vue({
     addcofcof:[],
     addpersonal:[],
     mediaName:"No file uploaded",
-      list: [
-        { name: "John", id: 0 },
-        { name: "Joao", id: 1 },
-        { name: "Jean", id: 2 }
-      ],
-      currentab: 0
+    ordenpersonal:[],
+    ordencofcof:[],
+
+    currentab: 0
 
   },
 
@@ -33,6 +31,8 @@ var app = new Vue({
         this.regs = response.body;
         this.proyectoscofcof = response.body.asignacion.cofcof;
         this.proyectospersonal = response.body.asignacion.personal;
+        this.ordencofcof = response.body.orden.cofcof;
+        this.ordenpersonal = response.body.orden.personal;
       }, function(){
         alert('Error!');
       });
@@ -76,7 +76,12 @@ var app = new Vue({
     },
 
     ordenar_proyectos:function(e){
-      console.log(this.list)
+      this.$http.post('orden_proyecto.php',{
+        proyectoscofcof: this.ordencofcof,
+        proyectospersonal: this.ordenpersonal
+      }).then(function(response){
+
+      });
     },
 
     asignar_proyecto: function(e) {
