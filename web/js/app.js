@@ -1,10 +1,16 @@
+import draggable from "@/vuedraggable";
+let id = 1;
+export default {
+name: "simple",
+display: "Simple",
+order: 0,
+components: {
+  draggable
+},
 var app = new Vue({
   el: '#vueapp',
   data: {
-    nombre: '',
-    telefono: '',
     regs: [],
-    checkedCategories: [],
     nombre_proyecto:'',
     software:'',
     cliente:'',
@@ -25,9 +31,11 @@ var app = new Vue({
         { name: "Joao", id: 1 },
         { name: "Jean", id: 2 }
       ],
-      dragging: false
+      dragging: false,
+      currentab: 0
 
   },
+
   methods: {
 
     reloadList: function() {
