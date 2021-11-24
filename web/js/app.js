@@ -10,6 +10,7 @@ var app = new Vue({
     fecha_inicio:'',
     fecha_fin:'',
     descripcion:'',
+    portada:'',
     proyectoscofcof: [],
     proyectospersonal: [],
     nombre_proyecto_checked:"",
@@ -17,6 +18,7 @@ var app = new Vue({
     addcofcof:[],
     addpersonal:[],
     mediaName:"No file uploaded",
+    coverName:"No file uploaded",
     ordenpersonal:[],
     ordencofcof:[],
 
@@ -42,6 +44,26 @@ var app = new Vue({
     },
 
     crear_proyecto: function() {
+      this.file = this.$refs.file.files[0];
+      let formData = new FormData();
+      formData.append('file', this.file);
+      axios.post('coverfile.php', formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(function (response) {
+        if(!response.data){
+          alert('File not uploaded.');
+        }else{
+          this.portada = response;
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
       this.$http.post('crear_proyecto.php',{
         nombre_proyecto: this.nombre_proyecto,
         descripcion: this.descripcion,
@@ -51,6 +73,7 @@ var app = new Vue({
         fecha_fin: this.fecha_fin,
         cofcof: this.addcofcof,
         personal: this.addpersonal,
+        portada: this.portada,
       }).then(function(response){
         this.regs = response.body;
         this.nombre_proyecto= "";
@@ -65,6 +88,8 @@ var app = new Vue({
     eliminar_proyecto: function() {
       this.$http.post('eliminar_proyecto.php',{
         nombre_proyecto: this.nombre_proyecto_checked_delete,
+        proyectoscofcof: this.ordencofcof,
+        proyectospersonal: this.ordenpersonal
       }).then(function(response){
         this.regs = response.body;
       });
@@ -82,7 +107,7 @@ var app = new Vue({
     },
 
     ordenar_proyectos:function(e){
-      this.$http.post('eliminar_proyecto_2.php',{
+      this.$http.post('ordenar_proyecto.php',{
         proyectoscofcof: this.ordencofcof,
         proyectospersonal: this.ordenpersonal
       }).then(function(response){
@@ -113,14 +138,15 @@ var app = new Vue({
     mediaChoosen:function(e){
       this.mediaName = e.target.files[0].name;
     },
+    coverChoosen:function(e){
+      this.coverName = e.target.files[0].name;
+    },
     uploadFile: function(){
 
       this.file = this.$refs.file.files[0];
-
       let formData = new FormData();
       formData.append('file', this.file);
       formData.append('nombre_proyecto', this.nombre_proyecto_checked);
-
       axios.post('ajaxfile.php', formData,
       {
         headers: {
@@ -128,13 +154,11 @@ var app = new Vue({
         }
       })
       .then(function (response) {
-
         if(!response.data){
           alert('File not uploaded.');
         }else{
           alert('File uploaded successfully.');
         }
-
       })
       .catch(function (error) {
         console.log(error);
