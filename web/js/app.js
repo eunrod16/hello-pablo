@@ -48,7 +48,15 @@ var app = new Vue({
       let formData = new FormData();
       formData.append('file', this.file);
       formData.append('nombre_proyecto', this.nombre_proyecto);
-      axios.post('coverfile.php', formData,
+      formData.append('descripcion', this.descripcion);
+      formData.append('cliente', this.cliente);
+      formData.append('software', this.software);
+      formData.append('links', this.links);
+      formData.append('fecha_inicio', this.fecha_inicio);
+      formData.append('fecha_fin', this.fecha_fin);
+      formData.append('cofcof', this.cofcof);
+      formData.append('personal', this.personal);
+      axios.post('crear_proyecto.php', formData,
       {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -58,26 +66,6 @@ var app = new Vue({
         if(!response.data){
           alert('File not uploaded.');
         }else{
-          this.portada = response;
-          this.$http.post('crear_proyecto.php',{
-            nombre_proyecto: this.nombre_proyecto,
-            descripcion: this.descripcion,
-            cliente: this.cliente,
-            software: this.software,
-            fecha_inicio: this.fecha_inicio,
-            fecha_fin: this.fecha_fin,
-            cofcof: this.addcofcof,
-            personal: this.addpersonal,
-            portada: this.portada,
-          }).then(function(response){
-            this.regs = response.body;
-            this.nombre_proyecto= "";
-            this.descripcion="";
-            this.cliente="";
-            this.software="";
-            this.fecha_inicio="";
-            this.fecha_fin=""
-          });
         }
       })
       .catch(function (error) {

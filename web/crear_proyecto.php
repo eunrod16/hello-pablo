@@ -1,12 +1,48 @@
 <?php
-session_start();
-if ( !isSet($_SESSION['data']) ) $_SESSION['data']=array();
+//session_start();
+//if ( !isSet($_SESSION['data']) ) $_SESSION['data']=array();
 
-$post = json_decode(file_get_contents('php://input'), true);
+//$post = json_decode(file_get_contents('php://input'), true);
+require('../vendor/autoload.php');
+
+use Google\Cloud\Storage\StorageClient;
+$post = $_POST;
+
+
+function upload_object_cloud($bucketName, $objectName, $source)
+{
+	$storage = new StorageClient([
+	    'projectId' => "hopeforzeropolio"
+	]);
+	putenv('GOOGLE_APPLICATION_CREDENTIALS=hopeforzeropolio-f53ec920a5e0.json');
+	$file = fopen($source, 'r');
+	$bucket = $storage->bucket($bucketName);
+	$object = $bucket->upload($file, [
+		'name' => $objectName
+	]);
+}
+
+function upload_file_server(){
+  $filename = $_FILES['file']['name'];
+  $nombre_proyecto = $_POST['nombre_proyecto'];
+  $valid_extensions = array("jpg","jpeg","png","pdf");
+  $extension = pathinfo($filename, PATHINFO_EXTENSION);
+  if(in_array(strtolower($extension),$valid_extensions) ) {
+     if(move_uploaded_file($_FILES['file']['tmp_name'], __DIR__."/images/f".$filename)){
+        upload_object_cloud("hopeforzeropolio.appspot.com",$filename,__DIR__."/images/f".$filename);
+        $post['portada']= "firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615";
+
+     }else{
+        echo 0;
+     }
+  }else{
+     echo 0;
+  }
+}
 
 
 // JSON ORDEN PROYECTO
-
+function create_firebase(){
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/orden_proyecto.json";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -68,7 +104,7 @@ $response = curl_exec($curl);
 $data = json_decode($response);
 echo json_encode($data);
 //echo $data
-
+}
 
 
 
