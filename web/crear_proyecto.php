@@ -55,9 +55,8 @@ $nombredelproyecto = $post["nombre_proyecto"];
 $arraycofcof =  $orden_proyecto->cofcof;
 $arraypersonal =  $orden_proyecto->personal;
 
-$nuevo_valor={"name":$post["nombre_proyecto"]};
+$nuevo_valor->name = $post["nombre_proyecto"];
 array_unshift($arraycofcof , $nuevo_valor);
-$nuevo_valor={"name":$post["nombre_proyecto"]};
 array_unshift($arraypersonal , $nuevo_valor);
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/orden_proyecto/cofcof.json";
