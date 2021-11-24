@@ -58,31 +58,32 @@ var app = new Vue({
           alert('File not uploaded.');
         }else{
           this.portada = response;
+          this.$http.post('crear_proyecto.php',{
+            nombre_proyecto: this.nombre_proyecto,
+            descripcion: this.descripcion,
+            cliente: this.cliente,
+            software: this.software,
+            fecha_inicio: this.fecha_inicio,
+            fecha_fin: this.fecha_fin,
+            cofcof: this.addcofcof,
+            personal: this.addpersonal,
+            portada: this.portada,
+          }).then(function(response){
+            this.regs = response.body;
+            this.nombre_proyecto= "";
+            this.descripcion="";
+            this.cliente="";
+            this.software="";
+            this.fecha_inicio="";
+            this.fecha_fin=""
+          });
         }
       })
       .catch(function (error) {
         console.log(error);
       });
 
-      this.$http.post('crear_proyecto.php',{
-        nombre_proyecto: this.nombre_proyecto,
-        descripcion: this.descripcion,
-        cliente: this.cliente,
-        software: this.software,
-        fecha_inicio: this.fecha_inicio,
-        fecha_fin: this.fecha_fin,
-        cofcof: this.addcofcof,
-        personal: this.addpersonal,
-        portada: this.portada,
-      }).then(function(response){
-        this.regs = response.body;
-        this.nombre_proyecto= "";
-        this.descripcion="";
-        this.cliente="";
-        this.software="";
-        this.fecha_inicio="";
-        this.fecha_fin=""
-      });
+
     },
 
     eliminar_proyecto: function() {
