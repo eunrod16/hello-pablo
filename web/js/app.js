@@ -44,7 +44,7 @@ var app = new Vue({
     },
 
     crear_proyecto: function() {
-      this.file = this.$refs.file.files[0];
+      this.file = this.$refs.cover.files[0];
       let formData = new FormData();
       formData.append('file', this.file);
       formData.append('nombre_proyecto', this.nombre_proyecto);
