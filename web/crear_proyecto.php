@@ -6,7 +6,7 @@
 require('../vendor/autoload.php');
 
 use Google\Cloud\Storage\StorageClient;
-$post = $_POST;
+
 upload_file_server();
 create_firebase();
 
@@ -31,7 +31,7 @@ function upload_file_server(){
   if(in_array(strtolower($extension),$valid_extensions) ) {
      if(move_uploaded_file($_FILES['file']['tmp_name'], __DIR__."/images/f".$filename)){
         upload_object_cloud("hopeforzeropolio.appspot.com",$filename,__DIR__."/images/f".$filename);
-        $post['portada']= "firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615";
+        $_POST['portada']= "firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615";
 
      }else{
         echo 0;
@@ -51,11 +51,11 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 
 $orden_proyecto = json_decode($response);
-$nombredelproyecto = $post["nombre_proyecto"];
+$nombredelproyecto = $_POST["nombre_proyecto"];
 $arraycofcof =  $orden_proyecto->cofcof;
 $arraypersonal =  $orden_proyecto->personal;
 
-$nuevo_valor->name = $post["nombre_proyecto"];
+$nuevo_valor->name = $_POST["nombre_proyecto"];
 array_unshift($arraycofcof , $nuevo_valor);
 array_unshift($arraypersonal , $nuevo_valor);
 
@@ -75,17 +75,17 @@ $response = curl_exec($curl);
 
 
 // JSON PAGINA PROYECTO
-$asignacion_proyectos->nombre_proyecto =  $post["nombre_proyecto"];
+$asignacion_proyectos->nombre_proyecto =  $_POST["nombre_proyecto"];
 $asignacion_proyectos->checked = false;
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$post["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$_POST["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($asignacion_proyectos) );
 $response = curl_exec($curl);
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/personal/".$post["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/personal/".$_POST["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
@@ -94,11 +94,11 @@ $response = curl_exec($curl);
 
 // JSON PROYECTOS
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$post["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$_POST["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
-curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($post) );
+curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($_POST) );
 
 $response = curl_exec($curl);
 $data = json_decode($response);
