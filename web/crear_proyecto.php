@@ -6,9 +6,10 @@
 require('../vendor/autoload.php');
 
 use Google\Cloud\Storage\StorageClient;
-
-upload_file_server();
-create_firebase();
+$post = $_POST;
+$portada = upload_file_server();
+$post["portada"]= $portada
+create_firebase($post);
 
 function upload_object_cloud($bucketName, $objectName, $source)
 {
@@ -25,13 +26,12 @@ function upload_object_cloud($bucketName, $objectName, $source)
 
 function upload_file_server(){
   $filename = $_FILES['file']['name'];
-  $nombre_proyecto = $_POST['nombre_proyecto'];
   $valid_extensions = array("jpg","jpeg","png","pdf");
   $extension = pathinfo($filename, PATHINFO_EXTENSION);
   if(in_array(strtolower($extension),$valid_extensions) ) {
      if(move_uploaded_file($_FILES['file']['tmp_name'], __DIR__."/images/f".$filename)){
         upload_object_cloud("hopeforzeropolio.appspot.com",$filename,__DIR__."/images/f".$filename);
-        $_POST['portada']= "firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615";
+        return "firebasestorage.googleapis.com/v0/b/hopeforzeropolio.appspot.com/o/".$filename."?alt=media&token=ae3bd583-bafe-486e-b499-82b1d70b4615";
 
      }else{
         echo 0;
@@ -43,7 +43,7 @@ function upload_file_server(){
 
 
 // JSON ORDEN PROYECTO
-function create_firebase(){
+function create_firebase($post){
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/orden_proyecto.json";
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -51,11 +51,11 @@ curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 
 $orden_proyecto = json_decode($response);
-$nombredelproyecto = $_POST["nombre_proyecto"];
+$nombredelproyecto = $post["nombre_proyecto"];
 $arraycofcof =  $orden_proyecto->cofcof;
 $arraypersonal =  $orden_proyecto->personal;
 
-$nuevo_valor->name = $_POST["nombre_proyecto"];
+$nuevo_valor->name = $post["nombre_proyecto"];
 array_unshift($arraycofcof , $nuevo_valor);
 array_unshift($arraypersonal , $nuevo_valor);
 
@@ -75,17 +75,17 @@ $response = curl_exec($curl);
 
 
 // JSON PAGINA PROYECTO
-$asignacion_proyectos->nombre_proyecto =  $_POST["nombre_proyecto"];
+$asignacion_proyectos->nombre_proyecto =  $post["nombre_proyecto"];
 $asignacion_proyectos->checked = false;
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$_POST["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/cofcof/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($asignacion_proyectos) );
 $response = curl_exec($curl);
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/personal/".$_POST["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/pagina_proyecto/personal/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
@@ -94,11 +94,11 @@ $response = curl_exec($curl);
 
 // JSON PROYECTOS
 
-$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$_POST["nombre_proyecto"].".json";
+$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/proyectos/".$post["nombre_proyecto"].".json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
-curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($_POST) );
+curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($post) );
 
 $response = curl_exec($curl);
 $data = json_decode($response);
