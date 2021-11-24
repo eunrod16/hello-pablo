@@ -7,7 +7,8 @@ require('../vendor/autoload.php');
 
 use Google\Cloud\Storage\StorageClient;
 $post = $_POST;
-
+upload_file_server();
+create_firebase();
 
 function upload_object_cloud($bucketName, $objectName, $source)
 {
