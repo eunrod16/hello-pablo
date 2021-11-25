@@ -66,6 +66,7 @@ var app = new Vue({
         if(!response.data){
           alert('File not uploaded.');
         }else{
+          this.regs = response.body;
         }
       })
       .catch(function (error) {
