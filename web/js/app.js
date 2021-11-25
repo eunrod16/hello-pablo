@@ -94,7 +94,8 @@ var app = new Vue({
     },
     select_project: function(e) {
       var project =  this.proyectos[this.nombre_proyecto_select];
-      project.forEach((item, i) => {
+      var map = new Map(Object.entries(project));
+      map.forEach((item, i) => {
         this.cliente = item["cliente"];
         this.software = item["software"];
         this.links = item["links"];
