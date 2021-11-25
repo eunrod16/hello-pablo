@@ -314,9 +314,10 @@
                   <div class="field" v-for="r in r1">
                      <label class="radio">
                      <input type="radio"
-                        v-model="nombre_proyecto_checked_delete"
+                        v-model="nombre_proyecto_select"
                         id="r.nombre_proyecto"
                         :value="r.nombre_proyecto"
+                        @change="select_project"
                         >
                      {{ r.nombre_proyecto }}
                      </label>
