@@ -66,7 +66,7 @@ var app = new Vue({
         if(!response.data){
           alert('File not uploaded.');
         }else{
-          console.log(response.body;)
+          console.log(response.body)
           this.proyectos = response.body;
         }
       })
