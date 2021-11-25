@@ -332,10 +332,17 @@
                      <input class="input" disabled type="text" placeholder="Text input" v-model="nombre_proyecto" >
                   </div>
                </div>
-               <div class="field">
+               <div class="columns is-desktop">
+               <div class="field column">
                   <label class="label">Descripción</label>
                   <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
                </div>
+               <div class="column">
+               <figure class="image is-128x128">
+                <img :src="portada">
+              </figure>
+              </div>
+              </div>
                <div class="field">
                   <label class="label">Cliente</label>
                   <div class="control">

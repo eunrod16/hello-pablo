@@ -102,6 +102,11 @@ var app = new Vue({
         this.fecha_inicio = item["fecha_inicio"];
         this.fecha_fin = item["fecha_fin"];
         this.descripcion = item["descripcion"];
+        this.links = item["links"];
+        this.nombre_proyecto = item["nombre_proyecto"];
+        this.addcofcof = item["cofcof"];
+        this.addpersonal = item["personal"];
+        this.portada = item["portada"];
       });
 
       console.log()
