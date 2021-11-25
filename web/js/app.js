@@ -106,7 +106,7 @@ var app = new Vue({
         this.nombre_proyecto = item["nombre_proyecto"];
         this.addcofcof = item["cofcof"];
         this.addpersonal = item["personal"];
-        this.portada = item["portada"];
+        this.portada = "https://"+item["portada"];
       });
 
       console.log()
