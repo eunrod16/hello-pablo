@@ -93,7 +93,17 @@ var app = new Vue({
       console.log(this.nombre_proyecto_checked)
     },
     select_project: function(e) {
-      console.log(this.proyectos[this.nombre_proyecto_select][0])
+      var project =  this.proyectos[this.nombre_proyecto_select];
+      project.forEach((item, i) => {
+        this.cliente = item["cliente"];
+        this.software = item["software"];
+        this.links = item["links"];
+        this.fecha_inicio = item["fecha_inicio"];
+        this.fecha_fin = item["fecha_fin"];
+        this.descripcion = item["descripcion"];
+      });
+
+      console.log()
     },
     isActive (menuItem) {
       return this.currentab === menuItem
