@@ -7,7 +7,7 @@ require('../vendor/autoload.php');
 
 use Google\Cloud\Storage\StorageClient;
 $post = $_POST;
-if(!isnull($_POST["nombre_proyecto"])){
+if($_POST["nombre_proyecto"]==NULL){
   $portada = upload_file_server();
   $post["portada"]= $portada;
   create_firebase($post);
