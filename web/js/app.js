@@ -2,7 +2,7 @@
 var app = new Vue({
   el: '#vueapp',
   data: {
-    regs: [],
+    proyectos: [],
     nombre_proyecto:'',
     software:'',
     cliente:'',
@@ -30,7 +30,7 @@ var app = new Vue({
 
     reloadList: function() {
       this.$http.get('data.php').then(function(response){
-        this.regs = response.body;
+        this.proyectos = response.body.proyectos;
         this.proyectoscofcof = response.body.asignacion.cofcof;
         this.proyectospersonal = response.body.asignacion.personal;
         var json_ordencofcof = response.body.orden.cofcof;
@@ -66,7 +66,7 @@ var app = new Vue({
         if(!response.data){
           alert('File not uploaded.');
         }else{
-          this.regs = response.body;
+          this.proyectos = response.body;
         }
       })
       .catch(function (error) {
@@ -82,7 +82,7 @@ var app = new Vue({
         proyectoscofcof: this.ordencofcof,
         proyectospersonal: this.ordenpersonal
       }).then(function(response){
-        this.regs = response.body;
+        this.proyectos = response.body;
       });
     },
 
@@ -115,17 +115,6 @@ var app = new Vue({
       });
     },
 
-
-    enviar_proyectos: function() {
-      this.$http.post('data.php',{
-        nombre: this.nombre,
-        telefono: this.telefono
-      }).then(function(response){
-        this.regs = response.body;
-        this.nombre="";
-        this.telefono="";
-      });
-    },
     mediaChoosen:function(e){
       this.mediaName = e.target.files[0].name;
     },

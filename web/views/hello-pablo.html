@@ -178,7 +178,7 @@
             </form>
             <form v-show="currentab==1" class="box">
                <h2 class="title is-4">Agregar imágen a proyecto</h2>
-               <div v-for="r1 in regs.proyectos">
+               <div v-for="r1 in proyectos">
                   <div class="field" v-for="r in r1">
                      <label class="radio">
                      <input type="radio"
@@ -256,7 +256,7 @@
             </form>
             <form v-show="currentab==4" class="box">
                <h2 class="title is-4">Eliminar Proyecto </h2>
-               <div v-for="r1 in regs.proyectos">
+               <div v-for="r1 in proyectos">
                   <div class="field" v-for="r in r1">
                      <label class="radio">
                      <input type="radio"
