@@ -54,7 +54,7 @@ $orden_proyecto = json_decode($response);
 $nombredelproyecto = $post["nombre_proyecto"];
 $arraycofcof =  $orden_proyecto->cofcof;
 $arraypersonal =  $orden_proyecto->personal;
-
+$nuevo_array=[];
 $nuevo_valor->name = $post["nombre_proyecto"];
 array_unshift($arraycofcof , $nuevo_valor);
 array_unshift($arraypersonal , $nuevo_valor);
@@ -65,7 +65,7 @@ curl_setopt( $curl, CURLOPT_URL, $url );
 curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "PUT" );
 curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($nuevo_array) );
 $response = curl_exec($curl);
-
+$nuevo_array=[];
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/orden_proyecto/personal.json";
 $curl = curl_init();
 curl_setopt( $curl, CURLOPT_URL, $url );
