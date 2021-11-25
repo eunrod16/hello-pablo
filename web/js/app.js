@@ -22,7 +22,8 @@ var app = new Vue({
     ordenpersonal:[],
     ordencofcof:[],
 
-    currentab: 1
+    currentab: 1,
+    nombre_proyecto_select:''
 
   },
 
@@ -90,6 +91,9 @@ var app = new Vue({
 
     check: function(e) {
       console.log(this.nombre_proyecto_checked)
+    },
+    select_project: function(e) {
+      console.log(this.proyectos[this.nombre_proyecto_select])
     },
     isActive (menuItem) {
       return this.currentab === menuItem

@@ -254,6 +254,7 @@
                   </div>
                </div>
             </form>
+
             <form v-show="currentab==4" class="box">
                <h2 class="title is-4">Eliminar Proyecto </h2>
                <div v-for="r1 in proyectos">
@@ -303,6 +304,169 @@
                <div class="field is-grouped">
                   <div class="control">
                      <button v-on:click="ordenar_proyectos" class="button is-link">Submit</button>
+                  </div>
+               </div>
+            </form>
+
+            <form v-show="currentab==2" class="box">
+               <h2 class="title is-4">Elegir Proyecto </h2>
+               <div v-for="r1 in proyectos">
+                  <div class="field" v-for="r in r1">
+                     <label class="radio">
+                     <input type="radio"
+                        v-model="nombre_proyecto_checked_delete"
+                        id="r.nombre_proyecto"
+                        :value="r.nombre_proyecto"
+                        >
+                     {{ r.nombre_proyecto }}
+                     </label>
+                  </div>
+               </div>
+            </form>
+
+            <form v-show="currentab==2"class="box">
+               <div class="field">
+                  <label class="label">Nombre del Proyecto</label>
+                  <div class="control">
+                     <input class="input" disabled type="text" placeholder="Text input" v-model="nombre_proyecto" >
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">Descripción</label>
+                  <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
+               </div>
+               <div class="field">
+                  <label class="label">Cliente</label>
+                  <div class="control">
+                     <input class="input" type="text" placeholder="Text input" v-model="cliente">
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">Software</label>
+                  <div class="control">
+                     <input class="input" type="text" placeholder="Text input" v-model="software">
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">Links</label>
+                  <div class="control">
+                     <input class="input" type="text" placeholder="Text input" v-model="links">
+                  </div>
+               </div>
+               <div class="field">
+                  <div class="columns is-desktop">
+                     <div class="column">
+                        <label class="label">Fecha Inicio</label>
+                        <div class="control">
+                           <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio">
+                        </div>
+                     </div>
+                     <div class="column">
+                        <label class="label">Fecha Fin</label>
+                        <div class="control">
+                           <input class="input" type="date" placeholder="Text input" v-model="fecha_fin">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- <label class="label">Imágen de portada</label>
+               <label class="file-label">
+                  <div id="file-js" class="file has-name">
+               <label class="file-label">
+               <input class="file-input" type="file" id="cover" ref="cover" v-on:change="coverChoosen" >
+               <span class="file-cta">
+               <span class="file-icon">
+               <i class="fas fa-upload"></i>
+               </span>
+               <span class="file-label">
+               Choose a file…
+               </span>
+               </span>
+               <span class="file-name">
+               {{coverName}}
+               </span>
+               </label>
+               </div>
+               </label> -->
+              </br>
+               <div class="field">
+                  <label class="label">Incluir en CofCof</label>
+                  <div class="columns is-desktop">
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addcofcof"
+                           value="descripcion">
+                        Descripción
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addcofcof"
+                           value="cliente">
+                        Cliente
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addcofcof"
+                           value="software">
+                        Software
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addcofcof"
+                           value="fechas">
+                        Fechas
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="field">
+                  <label class="label">Incluir en Personal</label>
+                  <div class="columns is-desktop">
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addpersonal"
+                           value="descripcion">
+                        Descripción
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addpersonal"
+                           value="cliente">
+                        Cliente
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addpersonal"
+                           value="software">
+                        Software
+                        </label>
+                     </div>
+                     <div class="column">
+                        <label class="checkbox">
+                        <input type="checkbox"
+                           v-model="addpersonal"
+                           value="fechas">
+                        Fechas
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               </br>
+               <div class="field is-grouped">
+                  <div class="control">
+                     <button v-on:click="crear_proyecto" class="button is-link">Submit</button>
                   </div>
                </div>
             </form>
