@@ -93,7 +93,7 @@ var app = new Vue({
       console.log(this.nombre_proyecto_checked)
     },
     select_project: function(e) {
-      console.log(this.proyectos[this.nombre_proyecto_select])
+      console.log(this.proyectos[this.nombre_proyecto_select][0])
     },
     isActive (menuItem) {
       return this.currentab === menuItem
