@@ -31,7 +31,9 @@ var app = new Vue({
     ordenpersonal:[],
     ordencofcof:[],
     currentab: 1,
-    nombre_proyecto_select:''
+    nombre_proyecto_select:'',
+    media_proyecto:[],
+    medias:[]
 
   },
 
@@ -42,10 +44,9 @@ var app = new Vue({
         this.proyectos = response.body.proyectos;
         this.proyectoscofcof = response.body.asignacion.cofcof;
         this.proyectospersonal = response.body.asignacion.personal;
-        var json_ordencofcof = response.body.orden.cofcof;
-        var json_ordenpersonal =response.body.orden.personal;
-        this.ordenpersonal =json_ordenpersonal ;
-        this.ordencofcof = json_ordencofcof;
+        this.ordenpersonal= response.body.orden.cofcof;
+        this.ordencofcof =response.body.orden.personal;
+        this.media_proyecto = response.body.media;
 
       }, function(){
         alert('Error!');
@@ -120,6 +121,7 @@ var app = new Vue({
 
     select_project: function(e) {
       var project =  this.proyectos[this.nombre_proyecto_select];
+      this.media = this.media_proyecto[this.nombre_proyecto_select];
       var map = new Map(Object.entries(project));
       map.forEach((item, i) => {
         this.cliente_update = item["cliente"];

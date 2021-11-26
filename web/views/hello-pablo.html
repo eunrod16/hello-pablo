@@ -295,8 +295,8 @@
                      <div class="card">
                         <ul class="panel list-group" style="min-height: 10px;">
                            <draggable v-model="ordenpersonal" :options="{group:'proyect', dragClass:'dragItem', ghostClass:'dropHere'}">
-                              <li class="panel-block list-group-item" v-for="element in ordenpersonal"> {{element.name}}</li>
-                              <li class="panel-block list-group-items" v-if="ordenpersonal.length === 0"></li>
+                              <a class="panel-block list-group-item" v-for="element in ordenpersonal"> {{element.name}}</a>
+                              <a class="panel-block list-group-items" v-if="ordenpersonal.length === 0"></a>
                            </draggable>
                         </ul>
                      </div>
@@ -309,7 +309,7 @@
                </div>
             </form>
 
-            <form v-show="currentab==2" class="box">
+            <form v-show="currentab==2||currentab==5" class="box">
                <h2 class="title is-4">Elegir Proyecto </h2>
                <div v-for="r1 in proyectos">
                   <div class="field" v-for="r in r1">
@@ -479,6 +479,29 @@
                   </div>
                </div>
             </form>
+            <div v-show="currentab==5">
+              <div v-for="m in media" class="columns is-desktop">
+              <figure class="image is-128x128">
+               <img :src="'https://'+m.link_media">
+             </figure>
+             <div class="column">
+                <label class="checkbox">
+                <input type="checkbox"
+                   v-model="addcofcof"
+                   value="fechas">
+                CofCof
+                </label>
+             </div>
+             <div class="column">
+                <label class="checkbox">
+                <input type="checkbox"
+                   v-model="addcofcof"
+                   value="fechas">
+                Personal
+                </label>
+             </div>
+              </div>
+              </div>
          </section>
       </div>
    </body>
