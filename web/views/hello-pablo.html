@@ -282,7 +282,7 @@
                   <div class="column">
                      <h3 class="title is-5">Proyectos en CofCof</h3>
                      <div class="card">
-                        <ul class="panel list-group" style="min-height: 10px;">
+                        <ul v-if="ordencofcof.length>0" class="panel list-group" style="min-height: 10px;">
                            <draggable v-model="ordencofcof" :options="{ dragClass:'dragItem', ghostClass:'dropHere'}">
                               <a class="panel-block list-group-item" v-for="element in ordencofcof"> {{element.name}}</a>
                               <a class="panel-block list-group-item" v-if="ordencofcof.length === 0"></a>
@@ -293,7 +293,7 @@
                   <div class="column">
                      <h3 class="title is-5">Proyectos en Personal</h3>
                      <div class="card">
-                        <ul class="panel list-group" style="min-height: 10px;">
+                        <ul v-if="ordencofcof.length>0" class="panel list-group" style="min-height: 10px;">
                            <draggable v-model="ordenpersonal" :options="{group:'proyect', dragClass:'dragItem', ghostClass:'dropHere'}">
                               <a class="panel-block list-group-item" v-for="element in ordenpersonal"> {{element.name}}</a>
                               <a class="panel-block list-group-items" v-if="ordenpersonal.length === 0"></a>
