@@ -99,13 +99,13 @@ var app = new Vue({
 
         this.$http.post('editar_proyecto.php',{
           nombre_proyecto: this.nombre_proyecto_update,
-          descripcion: this.descripcion,
-          cliente: this.cliente,
-          software: this.software,
-          fecha_inicio: this.fecha_inicio,
-          fecha_fin: this.fecha_fin,
-          cofcof: this.addcofcof,
-          personal: this.addpersonal,
+          descripcion: this.descripcion_update,
+          cliente: this.cliente_update,
+          software: this.software_update,
+          fecha_inicio: this.fecha_inicio_update,
+          fecha_fin: this.fecha_fin_update,
+          cofcof: this.addcofcof_update,
+          personal: this.addpersonal_update,
           portada: this.portada,
 
         }).then(function(response){
