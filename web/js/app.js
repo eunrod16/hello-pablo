@@ -130,8 +130,7 @@ var app = new Vue({
 
     select_project: function(e) {
       var project =  this.proyectos[this.nombre_proyecto_select];
-      console.log(count(this.media_proyecto));
-      this.media = count(this.media_proyecto)>0?this.media_proyecto[this.nombre_proyecto_select]:[];
+      this.media = this.media_proyecto!=null?this.media_proyecto[this.nombre_proyecto_select]:[];
       var map = new Map(Object.entries(project));
       map.forEach((item, i) => {
         this.cliente_update = item["cliente"];
