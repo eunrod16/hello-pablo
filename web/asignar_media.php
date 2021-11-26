@@ -16,7 +16,7 @@ $response = curl_exec($curl);
 // AGREGAR MEDIA
 $arraymedia = $post["media"];
 foreach ($arraymedia as $media) {
-	asign_link_object($media)
+	asign_link_object($media);
 };
 
 function asign_link_object($obj){
