@@ -1,0 +1,24 @@
+.list-group > .list-group-item:first-child {
+  border-radius: 4px 4px 0 0;
+}
+.list-group > .list-group-item:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.list-group > .list-group-item.is-primary {
+  background-color: hsl(171, 100%, 41%);
+  color: #fff;
+ }
+.list-group > .list-group-item.is-info {
+  background-color: hsl(217, 71%, 53%);
+  color: #fff;
+}
+.list-group > .list-group-item.is-success {
+  background-color: hsl(141, 71%, 48%);
+  color: #fff;
+}
+.list-group > .list-group-item.is-warning { background-color: hsl(48, 100%, 67%); }
+.list-group > .list-group-item.is-danger {
+  background-color: hsl(348, 100%, 61%);
+  color: #fff;
+}
