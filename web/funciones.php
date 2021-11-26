@@ -40,7 +40,7 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 $response = curl_exec($curl);
 
-$orden_proyecto = json_decode($response);
+$orden_proyecto = (array)json_decode($response);
 $arraycofcof =  $orden_proyecto->cofcof;
 $arraypersonal =  $orden_proyecto->personal;
 $nombredelproyecto = $post["nombre_proyecto"];
