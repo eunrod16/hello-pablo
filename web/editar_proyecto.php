@@ -6,7 +6,7 @@ $post = json_decode(file_get_contents('php://input'), true);
 require('../vendor/autoload.php');
 require('funciones.php');
 
-delete_firebaseÇ($post);
+delete_firebase($post);
 create_firebase($post);
 
 
