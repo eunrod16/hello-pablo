@@ -104,9 +104,10 @@ var app = new Vue({
           software: this.software_update,
           fecha_inicio: this.fecha_inicio_update,
           fecha_fin: this.fecha_fin_update,
+          links: this.links_update,
           cofcof: this.addcofcof_update,
           personal: this.addpersonal_update,
-          portada: this.portada,
+          portada: this.portada_update,
 
         }).then(function(response){
         this.proyectos = response.body;
