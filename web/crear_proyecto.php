@@ -11,6 +11,8 @@ $post = $_POST;
 if(isset($_POST["nombre_proyecto"])){
   $portada = upload_file_server();
   $post["portada"]= $portada;
+  $post["cofcof"] =  explode(",", $post["cofcof"]);
+  $post["personal"] =  explode(",", $post["personal"]);
   create_firebase($post);
 }
 else{

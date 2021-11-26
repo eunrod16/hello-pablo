@@ -76,8 +76,7 @@ $response = curl_exec($curl);
 
 // JSON ORDEN PROYECTO
 function create_firebase($post){
-$post["cofcof"] =  explode(",", $post["cofcof"]);
-$post["personal"] =  explode(",", $post["personal"]);
+
 
 $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/orden_proyecto.json";
 $curl = curl_init($url);
