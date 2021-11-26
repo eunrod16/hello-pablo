@@ -480,7 +480,7 @@
                </div>
             </form>
             <div v-show="currentab==5">
-              <div v-for="m in media" class="columns is-desktop">
+              <div v-for="m in media" class="columns is-desktop box">
               <figure class="image is-128x128">
                <img :src="'https://'+m.link_media">
              </figure>
@@ -489,15 +489,13 @@
                 <input type="checkbox"
                    v-model="addcofcof"
                    value="fechas">
-                CofCof
+                Añadir a CofCof
                 </label>
-             </div>
-             <div class="column">
                 <label class="checkbox">
                 <input type="checkbox"
                    v-model="addcofcof"
                    value="fechas">
-                Personal
+                Añadir a Personal
                 </label>
              </div>
               </div>
