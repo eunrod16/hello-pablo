@@ -14,7 +14,7 @@ curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "DELETE" );
 $response = curl_exec($curl);
 
 // AGREGAR MEDIA
-$arraymedia = $post["media"]
+$arraymedia = $post["media"];
 foreach ($arraymedia as $media) {
 	asign_link_object($media)
 }
