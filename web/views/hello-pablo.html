@@ -284,8 +284,8 @@
                      <div class="card">
                         <ul class="panel list-group" style="min-height: 10px;">
                            <draggable v-model="ordencofcof" :options="{ dragClass:'dragItem', ghostClass:'dropHere'}">
-                              <li class="panel-block list-group-item" v-for="element in ordencofcof"> {{element.name}}</li>
-                              <li class="panel-block list-group-item" v-if="ordencofcof.length === 0"></li>
+                              <a class="panel-block list-group-item" v-for="element in ordencofcof"> {{element.name}}</a>
+                              <a class="panel-block list-group-item" v-if="ordencofcof.length === 0"></a>
                            </draggable>
                         </ul>
                      </div>
