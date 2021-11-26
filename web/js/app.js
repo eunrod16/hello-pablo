@@ -88,9 +88,7 @@ var app = new Vue({
 
     eliminar_proyecto: function() {
       this.$http.post('eliminar_proyecto.php',{
-        nombre_proyecto: this.nombre_proyecto_checked_delete,
-        proyectoscofcof: this.ordencofcof,
-        proyectospersonal: this.ordenpersonal
+        nombre_proyecto: this.nombre_proyecto_checked_delete
       }).then(function(response){
         this.proyectos = response.body;
       });
@@ -98,12 +96,8 @@ var app = new Vue({
 
     editar_proyecto: function() {
 
-      this.$http.post('eliminar_proyecto.php',{
-        nombre_proyecto: this.nombre_proyecto_update,
-        proyectoscofcof: this.ordencofcof,
-        proyectospersonal: this.ordenpersonal
-      }).then(function(response){
-        this.$http.post('crear_proyecto.php',{
+
+        this.$http.post('editar_proyecto.php',{
           nombre_proyecto: this.nombre_proyecto_update,
           descripcion: this.descripcion,
           cliente: this.cliente,
@@ -114,8 +108,7 @@ var app = new Vue({
           personal: this.addpersonal,
           portada: this.portada,
 
-        });
-      }).then(function(response){
+        }).then(function(response){
         this.proyectos = response.body;
       });
 
