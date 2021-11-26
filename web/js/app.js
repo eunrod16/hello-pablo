@@ -10,18 +10,26 @@ var app = new Vue({
     fecha_inicio:'',
     fecha_fin:'',
     descripcion:'',
-    portada:'',
-    proyectoscofcof: [],
-    proyectospersonal: [],
-    nombre_proyecto_checked:"",
-    nombre_proyecto_checked_delete:"",
     addcofcof:[],
     addpersonal:[],
+    nombre_proyecto_update:'',
+    software_update:'',
+    cliente_update:'',
+    links_update:'',
+    fecha_inicio_update:'',
+    fecha_fin_update:'',
+    descripcion_update:'',
+    portada_update:'',
+    addcofcof_update:[],
+    addpersonal_update:[],
+    proyectoscofcof: [],
+    proyectospersonal: [],
+    nombre_proyecto_checked_media:"",
+    nombre_proyecto_checked_delete:"",
     mediaName:"No file uploaded",
     coverName:"No file uploaded",
     ordenpersonal:[],
     ordencofcof:[],
-
     currentab: 1,
     nombre_proyecto_select:''
 
@@ -55,8 +63,8 @@ var app = new Vue({
       formData.append('links', this.links);
       formData.append('fecha_inicio', this.fecha_inicio);
       formData.append('fecha_fin', this.fecha_fin);
-      formData.append('cofcof', this.cofcof);
-      formData.append('personal', this.personal);
+      formData.append('cofcof', this.addcofcof);
+      formData.append('personal', this.addpersonal);
       axios.post('crear_proyecto.php', formData,
       {
         headers: {
@@ -88,25 +96,49 @@ var app = new Vue({
       });
     },
 
+    editar_proyecto: function() {
 
-    check: function(e) {
-      console.log(this.nombre_proyecto_checked)
+      this.$http.post('eliminar_proyecto.php',{
+        nombre_proyecto: this.nombre_proyecto_update,
+        proyectoscofcof: this.ordencofcof,
+        proyectospersonal: this.ordenpersonal
+      }).then(function(response){
+        this.$http.post('crear_proyecto.php',{
+          nombre_proyecto: this.nombre_proyecto_update,
+          descripcion: this.descripcion,
+          cliente: this.cliente,
+          software: this.software,
+          fecha_inicio: this.fecha_inicio,
+          fecha_fin: this.fecha_fin,
+          cofcof: this.addcofcof,
+          personal: this.addpersonal,
+          portada: this.portada,
+
+        });
+      }).then(function(response){
+        this.proyectos = response.body;
+      });
+
+
     },
+
+
+
     select_project: function(e) {
       var project =  this.proyectos[this.nombre_proyecto_select];
       var map = new Map(Object.entries(project));
       map.forEach((item, i) => {
-        this.cliente = item["cliente"];
-        this.software = item["software"];
-        this.links = item["links"];
-        this.fecha_inicio = item["fecha_inicio"];
-        this.fecha_fin = item["fecha_fin"];
-        this.descripcion = item["descripcion"];
-        this.links = item["links"];
-        this.nombre_proyecto = item["nombre_proyecto"];
-        this.addcofcof = item["cofcof"];
-        this.addpersonal = item["personal"];
-        this.portada = "https://"+item["portada"];
+        this.cliente_update = item["cliente"];
+        this.software_update = item["software"];
+        this.links_update = item["links"];
+        this.fecha_inicio_update = item["fecha_inicio"];
+        this.fecha_fin_update = item["fecha_fin"];
+        this.descripcion_update = item["descripcion"];
+        this.links_update = item["links"];
+        this.nombre_proyecto_update = item["nombre_proyecto"];
+        this.addcofcof_update = item["cofcof"];
+        this.addpersonal_update = item["personal"];
+        this.portada_update = "https://"+item["portada"];
       });
 
       console.log()
@@ -147,7 +179,7 @@ var app = new Vue({
       this.file = this.$refs.file.files[0];
       let formData = new FormData();
       formData.append('file', this.file);
-      formData.append('nombre_proyecto', this.nombre_proyecto_checked);
+      formData.append('nombre_proyecto', this.nombre_proyecto_checked_media);
       axios.post('ajaxfile.php', formData,
       {
         headers: {

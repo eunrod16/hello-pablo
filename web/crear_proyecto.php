@@ -8,8 +8,11 @@ require('../vendor/autoload.php');
 use Google\Cloud\Storage\StorageClient;
 $post = $_POST;
 if(isset($_POST["nombre_proyecto"])){
-  $portada = upload_file_server();
-  $post["portada"]= $portada;
+  if(!isset($_POST["portada"]){
+    $portada = upload_file_server();
+    $post["portada"]= $portada;
+  }
+
   create_firebase($post);
 }
 else{

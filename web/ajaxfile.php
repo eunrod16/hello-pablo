@@ -29,7 +29,7 @@ function asign_link_object($nombre_proyecto, $link){
 
 $filename = $_FILES['file']['name'];
 $nombre_proyecto = $_POST['nombre_proyecto'];
-$valid_extensions = array("jpg","jpeg","png","pdf");
+$valid_extensions = array("jpg","jpeg","png","pdf","mp4","avi","mov");
 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 if(in_array(strtolower($extension),$valid_extensions) ) {
    if(move_uploaded_file($_FILES['file']['tmp_name'], __DIR__."/images/f".$filename)){

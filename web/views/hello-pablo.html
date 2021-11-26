@@ -25,6 +25,7 @@
                   <li @click.prevent="setActive(2)" :class="{ 'is-active': isActive(2) }"><a>Editar</a></li>
                   <li @click.prevent="setActive(3)" :class="{ 'is-active': isActive(3) }"><a>Asignar</a></li>
                   <li @click.prevent="setActive(4)" :class="{ 'is-active': isActive(4) }"><a>Eliminar</a></li>
+                  <li @click.prevent="setActive(5)" :class="{ 'is-active': isActive(4) }"><a>Media</a></li>
 
                </ul>
             </div>
@@ -182,10 +183,9 @@
                   <div class="field" v-for="r in r1">
                      <label class="radio">
                      <input type="radio"
-                        v-model="nombre_proyecto_checked"
+                        v-model="nombre_proyecto_checked_media"
                         id="r.nombre_proyecto"
-                        :value="r.nombre_proyecto"
-                        @change="check($event)">
+                        :value="r.nombre_proyecto">
                      {{ r.nombre_proyecto }}
                      </label>
                   </div>
@@ -329,36 +329,36 @@
                <div class="field">
                   <label class="label">Nombre del Proyecto</label>
                   <div class="control">
-                     <input class="input" disabled type="text" placeholder="Text input" v-model="nombre_proyecto" >
+                     <input class="input" disabled type="text" placeholder="Text input" v-model="nombre_proyecto_update" >
                   </div>
                </div>
                <div class="columns is-desktop">
                <div class="field column">
                   <label class="label">Descripción</label>
-                  <textarea class="textarea" placeholder="Textarea" v-model="descripcion" ></textarea>
+                  <textarea class="textarea" placeholder="Textarea" v-model="descripcion_update" ></textarea>
                </div>
                <div class="column">
                <figure class="image is-128x128">
-                <img :src="portada">
+                <img :src="portada_update">
               </figure>
               </div>
               </div>
                <div class="field">
                   <label class="label">Cliente</label>
                   <div class="control">
-                     <input class="input" type="text" placeholder="Text input" v-model="cliente">
+                     <input class="input" type="text" placeholder="Text input" v-model="cliente_update">
                   </div>
                </div>
                <div class="field">
                   <label class="label">Software</label>
                   <div class="control">
-                     <input class="input" type="text" placeholder="Text input" v-model="software">
+                     <input class="input" type="text" placeholder="Text input" v-model="software_update">
                   </div>
                </div>
                <div class="field">
                   <label class="label">Links</label>
                   <div class="control">
-                     <input class="input" type="text" placeholder="Text input" v-model="links">
+                     <input class="input" type="text" placeholder="Text input" v-model="links_update">
                   </div>
                </div>
                <div class="field">
@@ -366,13 +366,13 @@
                      <div class="column">
                         <label class="label">Fecha Inicio</label>
                         <div class="control">
-                           <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio">
+                           <input class="input" type="date" placeholder="Text input" v-model="fecha_inicio_update">
                         </div>
                      </div>
                      <div class="column">
                         <label class="label">Fecha Fin</label>
                         <div class="control">
-                           <input class="input" type="date" placeholder="Text input" v-model="fecha_fin">
+                           <input class="input" type="date" placeholder="Text input" v-model="fecha_fin_update">
                         </div>
                      </div>
                   </div>
@@ -474,7 +474,7 @@
                </br>
                <div class="field is-grouped">
                   <div class="control">
-                     <button v-on:click="crear_proyecto" class="button is-link">Submit</button>
+                     <button v-on:click="editar_proyecto" class="button is-link">Submit</button>
                   </div>
                </div>
             </form>
