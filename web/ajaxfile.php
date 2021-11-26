@@ -18,11 +18,15 @@ function upload_object($bucketName, $objectName, $source)
 }
 
 function asign_link_object($nombre_proyecto, $link){
+	$obj->nombre_proyecto = $nombre_proyecto;
+	$obj->link_media = $link;
+	$obj->cofcof = false;
+	$obj->personal = false;
   $url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media_proyecto/".$nombre_proyecto.".json";
   $curl = curl_init();
   curl_setopt( $curl, CURLOPT_URL, $url );
   curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
-  curl_setopt( $curl, CURLOPT_POSTFIELDS, '{"nombre_proyecto":"'.$nombre_proyecto.'","link_media":"'.$link.'"}' );
+  curl_setopt( $curl, CURLOPT_POSTFIELDS, $obj );
   $response = curl_exec($curl);
 }
 

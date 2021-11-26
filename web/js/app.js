@@ -95,6 +95,15 @@ var app = new Vue({
       });
     },
 
+    asignar_media: function() {
+      this.$http.post('asignar_media.php',{
+        nombre_proyecto: this.nombre_proyecto_select,
+        media: this.media,
+      }).then(function(response){
+        this.proyectos = response.body;
+      });
+    },
+
     editar_proyecto: function() {
 
 

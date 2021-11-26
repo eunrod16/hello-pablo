@@ -26,7 +26,7 @@
                   <li @click.prevent="setActive(2)" :class="{ 'is-active': isActive(2) }"><a>Editar</a></li>
                   <li @click.prevent="setActive(3)" :class="{ 'is-active': isActive(3) }"><a>Asignar</a></li>
                   <li @click.prevent="setActive(4)" :class="{ 'is-active': isActive(4) }"><a>Eliminar</a></li>
-                  <li @click.prevent="setActive(5)" :class="{ 'is-active': isActive(4) }"><a>Media</a></li>
+                  <li @click.prevent="setActive(5)" :class="{ 'is-active': isActive(5) }"><a>Media</a></li>
 
                </ul>
             </div>
@@ -487,18 +487,23 @@
              <div class="column">
                 <label class="checkbox">
                 <input type="checkbox"
-                   v-model="addcofcof"
-                   value="fechas">
+                   v-model="m.cofcof"
+                   value="cofcof">
                 Añadir a CofCof
                 </label>
                 <label class="checkbox">
                 <input type="checkbox"
-                   v-model="addcofcof"
-                   value="fechas">
+                   v-model="m.personal"
+                   value="personal">
                 Añadir a Personal
                 </label>
              </div>
               </div>
+              </div>
+              <div class="field is-grouped">
+                 <div class="control">
+                    <button v-on:click="asignar_media" class="button is-link">Submit</button>
+                 </div>
               </div>
          </section>
       </div>
