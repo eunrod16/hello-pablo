@@ -33,7 +33,7 @@ var app = new Vue({
     currentab: 1,
     nombre_proyecto_select:'',
     media_proyecto:[],
-    medias:[]
+    media:[]
 
   },
 
