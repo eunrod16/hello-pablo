@@ -479,8 +479,9 @@
                   </div>
                </div>
             </form>
+             <form v-show="currentab==2||currentab==5" class="box">
             <div v-show="currentab==5">
-              <div v-for="m in media" class="columns is-desktop box">
+              <div v-for="m in media" class="columns is-desktop panel">
               <figure class="image is-128x128">
                <img :src="'https://'+m.link_media">
              </figure>
@@ -505,6 +506,7 @@
                     <button v-on:click="asignar_media" class="button is-link">Submit</button>
                  </div>
               </div>
+              </form>
          </section>
       </div>
    </body>

@@ -100,7 +100,6 @@ var app = new Vue({
         nombre_proyecto: this.nombre_proyecto_select,
         media: this.media,
       }).then(function(response){
-        this.proyectos = response.body;
       });
     },
 
@@ -120,7 +119,7 @@ var app = new Vue({
           portada: this.portada_update,
 
         }).then(function(response){
-        this.proyectos = response.body;
+        
       });
 
 
