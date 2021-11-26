@@ -18,6 +18,7 @@ function upload_object($bucketName, $objectName, $source)
 }
 
 function asign_link_object($nombre_proyecto, $link){
+	$obj=new class{};
 	$obj->nombre_proyecto = $nombre_proyecto;
 	$obj->link_media = $link;
 	$obj->cofcof = false;
