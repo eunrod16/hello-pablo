@@ -17,7 +17,7 @@ $response = curl_exec($curl);
 $arraymedia = $post["media"];
 foreach ($arraymedia as $media) {
 	asign_link_object($media)
-}
+};
 
 function asign_link_object($obj){
 	$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media_proyecto/".$nombre_proyecto.".json";
