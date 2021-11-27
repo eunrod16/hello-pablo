@@ -135,7 +135,7 @@ curl_setopt( $curl, CURLOPT_POSTFIELDS, json_encode($post) );
 
 $response = curl_exec($curl);
 $data = json_decode($response);
-echo json_encode($data);
+return json_encode($data);
 //echo $data
 }
 

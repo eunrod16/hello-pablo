@@ -13,7 +13,7 @@ if(isset($_POST["nombre_proyecto"])){
   $post["portada"]= $portada;
   $post["cofcof"] =  explode(",", $post["cofcof"]);
   $post["personal"] =  explode(",", $post["personal"]);
-  create_firebase($post);
+  echo create_firebase($post);
 }
 else{
   echo 0;
