@@ -20,7 +20,7 @@ foreach ($arraymedia as $media) {
 };
 
 function asign_link_object($obj){
-	$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media_proyecto/".$post["nombre_proyecto"].".json";
+	$url = "https://porfolio-b6670-default-rtdb.firebaseio.com/media_proyecto/".$obj["nombre_proyecto"].".json";
 	$curl = curl_init();
 	curl_setopt( $curl, CURLOPT_URL, $url );
 	curl_setopt( $curl, CURLOPT_CUSTOMREQUEST, "POST" );
