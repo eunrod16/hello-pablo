@@ -33,7 +33,7 @@ function asign_link_object($nombre_proyecto, $link){
 
 
 $filename = $_FILES['file']['name'];
-$nombre_proyecto = $_POST['nombre_proyecto'];
+$nombre_proyecto = 'big'//$_POST['nombre_proyecto'];
 $valid_extensions = array("jpg","jpeg","png","pdf","mp4","avi","mov");
 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 if(in_array(strtolower($extension),$valid_extensions) ) {
